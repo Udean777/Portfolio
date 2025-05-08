@@ -6,14 +6,14 @@
 </script>
 
 <nav
-	class="mx-10 my-5 max-w-7xl rounded-md border-4 border-zinc-700 bg-white px-4 py-4 sm:mx-10 md:mx-72"
+	class="container rounded-md border-4 border-zinc-700 bg-white px-4 py-4 mx-auto max-w-[70rem] my-5"
 >
 	<div class="flex items-center justify-between">
 		<a href="/" class="hover-yellow-half text-3xl font-bold text-zinc-700 transition duration-200">
 			ssajudn<span class="text-5xl text-blue-500">.</span>
 		</a>
 
-		<div class="hidden space-x-4 lg:flex">
+		<div class="hidden md:flex md:space-x-4 lg:space-x-4">
 			<a
 				href="#about"
 				class="hover-shadow rounded-md border-2 border-zinc-700 px-4 py-2 text-zinc-700 transition duration-200"
@@ -36,8 +36,8 @@
 			>
 		</div>
 
-		<button on:click={toggleMenu} aria-label="Toggle navigation menu" class="block sm:hidden">
-			<div class="hamburger-icon block sm:hidden" class:active={isOpen}>
+		<button on:click={toggleMenu} aria-label="Toggle navigation menu" class="block md:hidden">
+			<div class="hamburger-icon" class:active={isOpen}>
 				<span class="line line-1"></span>
 				<span class="line line-2"></span>
 				<span class="line line-3"></span>
@@ -47,7 +47,7 @@
 
 	<div
 		id="mobileMenu"
-		class="mt-4 transform space-y-2 transition-all duration-300 ease-in-out sm:hidden"
+		class="mt-4 transform space-y-2 transition-all duration-300 ease-in-out md:hidden"
 		class:mobile-menu-visible={isOpen}
 		class:mobile-menu-hidden={!isOpen}
 	>
@@ -75,6 +75,7 @@
 </nav>
 
 <style>
+	/* Style CSS tetap sama */
 	.hover-yellow-half {
 		background-image: linear-gradient(transparent 50%, yellow 50%);
 		background-size: 100% 200%;

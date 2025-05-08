@@ -1,5 +1,5 @@
 <footer
-	class="flex flex-col items-center justify-center gap-6 border-t border-solid border-violet-950 py-8 sm:flex-row sm:justify-around sm:gap-8 sm:py-10"
+	class="flex flex-col items-center justify-center gap-6 border-t border-solid border-violet-950 py-8 sm:flex-row sm:justify-around sm:gap-8 sm:py-10 md:items-end"
 >
 	<a href="/" class="hover-yellow-half text-3xl font-bold text-zinc-700 transition duration-200">
 		ssajudn<span class="text-5xl text-blue-500">.</span>
