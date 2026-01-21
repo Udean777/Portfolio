@@ -6,7 +6,6 @@
 	import Experience from '$lib/components/sections/Experience.svelte';
 	import Certifications from '$lib/components/sections/Certifications.svelte';
 	import Services from '$lib/components/sections/Services.svelte';
-	import Testimonials from '$lib/components/sections/Testimonials.svelte';
 	import Contact from '$lib/components/sections/Contact.svelte';
 </script>
 
@@ -18,6 +17,5 @@
 	<Services />
 	<TechStack />
 	<Projects />
-	<Testimonials />
 	<Contact />
 </main>
