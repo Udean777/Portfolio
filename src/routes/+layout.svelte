@@ -1,11 +1,15 @@
 <script lang="ts">
 	import '../app.css';
-	import Footer from '../components/Footer.svelte';
-	import Navbar from '../components/Navbar.svelte';
+	import Navbar from '$lib/components/layout/Navbar.svelte';
+	import Footer from '$lib/components/layout/Footer.svelte';
 
 	let { children } = $props();
 </script>
 
 <Navbar />
-{@render children()}
+
+<main class="md:pl-20 pb-24 md:pb-12">
+	{@render children()}
+</main>
+
 <Footer />

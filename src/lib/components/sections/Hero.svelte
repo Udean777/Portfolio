@@ -1,19 +1,32 @@
 <script lang="ts">
-	let flipped = false;
+	import { onMount } from 'svelte';
+	let flipped = $state(false);
+	let mounted = $state(false);
 
 	function toggleFlip(state: boolean) {
 		flipped = state;
 	}
+
+	onMount(() => {
+		mounted = true;
+	});
 </script>
 
 <section
 	class="container mx-auto flex flex-col-reverse items-center justify-between gap-10 px-4 py-12 md:flex-row"
 >
-	<div class="text-center text-zinc-900 md:text-left">
-		<h1 class="mb-6 text-2xl leading-tight font-bold sm:text-3xl md:text-4xl lg:text-5xl">
+	<div
+		class="text-center text-zinc-900 transition-all duration-1000 ease-out md:text-left"
+		style:opacity={mounted ? 1 : 0}
+		style:transform={mounted ? 'translateX(0)' : 'translateX(-50px)'}
+	>
+		<h1 class="mb-2 text-2xl leading-tight font-bold sm:text-3xl md:text-4xl lg:text-5xl">
 			Hello <span class="wave inline-block">👋🏻</span> I'm
 			<span class="hover-highlight relative inline-block">Sajudin Ma'ruf</span>
 		</h1>
+		<p class="mb-6 text-lg font-semibold text-zinc-600 md:text-xl">
+			Frontend & Mobile Developer | SvelteKit, React Native
+		</p>
 		<a
 			href="/assets/CV-Sajudin-ma'ruf.pdf"
 			download="CV-Sajudin-ma'ruf.pdf"
@@ -23,16 +36,20 @@
 		</a>
 	</div>
 
-	<div class="relative flex w-full justify-center md:w-1/2">
+	<div
+		class="relative flex w-full justify-center transition-all duration-1000 ease-out md:w-1/2"
+		style:opacity={mounted ? 1 : 0}
+		style:transform={mounted ? 'scale(1)' : 'scale(0.8)'}
+	>
 		<div
 			class="relative h-32 w-32 [perspective:1000px] sm:h-40 sm:w-40 md:h-56 md:w-56 lg:h-72 lg:w-72"
 			role="button"
 			tabindex="0"
 			aria-label="Toggle flip"
-			on:mouseover={() => toggleFlip(true)}
-			on:mouseout={() => toggleFlip(false)}
-			on:focus={() => toggleFlip(true)}
-			on:blur={() => toggleFlip(false)}
+			onmouseover={() => toggleFlip(true)}
+			onmouseout={() => toggleFlip(false)}
+			onfocus={() => toggleFlip(true)}
+			onblur={() => toggleFlip(false)}
 		>
 			<div
 				class="relative h-full w-full rounded-full border-4 transition-transform duration-500 [transform-style:preserve-3d]"
@@ -54,12 +71,14 @@
 		<img
 			src="/icons/splash-2.png"
 			alt="Idea"
-			class="absolute -top-4 left-8 h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-12 lg:w-12"
+			class="absolute -top-4 left-8 h-4 w-4 transition-all delay-500 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-12 lg:w-12"
+			style:opacity={mounted ? 1 : 0}
 		/>
 		<img
 			src="/icons/splash-1.png"
 			alt="Arrow"
-			class="absolute right-8 bottom-0 w-6 rotate-[20deg] sm:w-8 md:w-10 lg:w-16"
+			class="absolute right-8 bottom-0 w-6 rotate-[20deg] transition-all delay-700 sm:w-8 md:w-10 lg:w-16"
+			style:opacity={mounted ? 1 : 0}
 		/>
 	</div>
 </section>
