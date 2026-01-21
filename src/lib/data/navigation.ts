@@ -32,11 +32,6 @@ export const navItems = [
     href: "#projects",
   },
   {
-    title: "Testimonials",
-    icon: MessageSquare,
-    href: "#testimonials",
-  },
-  {
     title: "Contact",
     icon: Mail,
     href: "#contact",
