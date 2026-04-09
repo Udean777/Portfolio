@@ -16,8 +16,8 @@ export const services: ServiceItem[] = [
 		icon: 'fas fa-mobile-alt'
 	},
 	{
-		title: 'UI/UX Design',
-		description: 'Designing clean, professional, and user-friendly interfaces for web and mobile.',
-		icon: 'fas fa-paint-brush'
+		title: 'Backend Development',
+		description: 'Building robust, scalable server-side logic, high-performance APIs, and efficient database architectures.',
+		icon: 'fas fa-server'
 	}
 ];

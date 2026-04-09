@@ -35,9 +35,3 @@
 		{/each}
 	</div>
 </section>
-
-<style>
-	.hover-shadow:hover {
-		box-shadow: 4px 4px 0 black;
-	}
-</style>

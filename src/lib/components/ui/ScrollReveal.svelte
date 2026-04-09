@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	let { children, once = true, threshold = 0.1, class: className = '', stagger = 0 } = $props();
+	let { children, once = true, threshold = 0.1, class: className = '', stagger = 0, fullHeight = false } = $props();
 
 	let element: HTMLElement;
 	let visible = $state(false);
@@ -26,8 +26,8 @@
 	});
 </script>
 
-<div bind:this={element} class="reveal-container {className}" style:transition-delay="{stagger}ms">
-	<div class="reveal-inner {visible ? 'active' : ''}">
+<div bind:this={element} class="reveal-container {className} {fullHeight ? 'h-full' : ''}" style:transition-delay="{stagger}ms">
+	<div class="reveal-inner {visible ? 'active' : ''} {fullHeight ? 'h-full' : ''}">
 		{@render children()}
 	</div>
 </div>

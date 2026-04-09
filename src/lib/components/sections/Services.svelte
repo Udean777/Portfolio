@@ -10,7 +10,7 @@
 
 	<div class="mx-auto grid grid-cols-1 gap-6 py-6 sm:grid-cols-2 lg:grid-cols-3">
 		{#each services as service, i}
-			<ScrollReveal stagger={i * 100}>
+			<ScrollReveal stagger={i * 100} fullHeight={true}>
 				<div
 					class="hover-shadow flex h-full flex-col items-center rounded-lg border-4 border-zinc-700 bg-white p-8 text-center"
 				>
@@ -29,8 +29,4 @@
 	</div>
 </section>
 
-<style>
-	.hover-shadow:hover {
-		box-shadow: 4px 4px 0 black;
-	}
-</style>
+

@@ -21,9 +21,6 @@
 		<a href="https://www.linkedin.com/in/sajudin/" aria-label="LinkedIn" target="_blank">
 			<i class="fa-brands fa-linkedin text-[30px]"></i>
 		</a>
-		<a href="https://twitter.com/ssjudn" aria-label="Twitter" target="_blank">
-			<i class="fa-brands fa-x-twitter text-[30px]"></i>
-		</a>
 	</div>
 </footer>
 

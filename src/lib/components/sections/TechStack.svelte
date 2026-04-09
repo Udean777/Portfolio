@@ -25,9 +25,4 @@
 	<!-- </div> -->
 </section>
 
-<style>
-	.hover-shadow:hover {
-		box-shadow: 3px 3px 0 black;
-		transition: box-shadow 0.2s ease-in-out;
-	}
-</style>
+
