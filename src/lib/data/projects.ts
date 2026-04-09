@@ -91,7 +91,7 @@ export const projects: ProjectItem[] = [
 		description: 'A simple and intuitive todo list application to manage daily tasks.',
 		icon: '/images/the-habits.png',
 		status: 'Live',
-		tags: ['React Native'],
+		tags: ['Flutter'],
 		featured: false,
 		links: [
 			{ label: 'Link', url: 'https://play.google.com/store/apps/details?id=com.ssajudin.the_habits' }
