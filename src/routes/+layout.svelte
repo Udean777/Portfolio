@@ -8,7 +8,7 @@
 
 <Navbar />
 
-<main class="md:pl-20 pb-24 md:pb-12">
+<main class="pb-24 md:pt-32 md:pb-12">
 	{@render children()}
 </main>
 

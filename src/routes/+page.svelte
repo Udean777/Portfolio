@@ -9,7 +9,7 @@
 	import Contact from '$lib/components/sections/Contact.svelte';
 </script>
 
-<main class="container mx-auto flex min-h-screen flex-col items-center justify-between md:w-[70rem]">
+<div class="container mx-auto flex min-h-screen flex-col items-center justify-between md:w-[70rem]">
 	<Hero />
 	<About />
 	<Experience />
@@ -18,4 +18,4 @@
 	<TechStack />
 	<Projects />
 	<Contact />
-</main>
+</div>
