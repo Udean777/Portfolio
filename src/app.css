@@ -1,60 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
-html {
-	scroll-behavior: smooth;
+:root {
+	--color-background: #1a1b26;
+	--color-foreground: #c0caf5;
+	--color-prompt: #7aa2f7;
+	--color-command: #bb9af7;
+	--color-output: #a9b1d6;
+	--color-error: #f7768e;
+	--color-accent: #73daca;
+	--color-muted: #565f89;
+}
+
+* {
+	font-family: 'JetBrains Mono', monospace;
+	box-sizing: border-box;
 }
 
 body {
-	font-family: 'Space Grotesk', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: var(--color-background);
 }
 
-@keyframes reveal-up {
+.terminal-bg {
+	background-color: var(--color-background);
+	color: var(--color-foreground);
+}
+
+.text-prompt {
+	color: var(--color-prompt);
+}
+.text-command {
+	color: var(--color-command);
+}
+.text-output {
+	color: var(--color-output);
+}
+.text-error {
+	color: var(--color-error);
+}
+.text-accent {
+	color: var(--color-accent);
+}
+.text-muted {
+	color: var(--color-muted);
+}
+.border-accent {
+	border-color: var(--color-accent);
+}
+.border-command {
+	border-color: var(--color-command);
+}
+.border-muted {
+	border-color: var(--color-muted);
+}
+.border-error {
+	border-color: var(--color-error);
+}
+.caret-accent {
+	caret-color: var(--color-accent);
+}
+.hover\:bg-command:hover {
+	background-color: var(--color-command);
+}
+.hover\:bg-error:hover {
+	background-color: var(--color-error);
+}
+.hover\:text-background:hover {
+	color: var(--color-background);
+}
+.hover\:text-output:hover {
+	color: var(--color-output);
+}
+.hover\:border-output:hover {
+	border-color: var(--color-output);
+}
+
+/* ── Cursor blink ── */
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+.blink-cursor {
+	animation: blink 1s step-start infinite;
+	font-size: 0.85em;
+	line-height: 1;
+}
+
+/* ── Boot lines fade in ── */
+@keyframes bootFade {
 	from {
 		opacity: 0;
-		transform: translateY(30px);
+		transform: translateX(-8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+.boot-line {
+	opacity: 0;
+	animation: bootFade 0.3s ease forwards;
+}
+
+/* ── Banner fade in ── */
+@keyframes bannerFade {
+	from {
+		opacity: 0;
+		transform: translateY(-12px);
 	}
 	to {
 		opacity: 1;
 		transform: translateY(0);
 	}
 }
+.banner-fadein {
+	opacity: 0;
+	transition:
+		opacity 0.6s ease,
+		transform 0.6s ease;
+	transform: translateY(-12px);
+}
+.banner-fadein.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
 
-@keyframes title-reveal {
+/* ── Entry fade in (per command output) ── */
+@keyframes entryFade {
 	from {
 		opacity: 0;
-		transform: scale(0.9);
+		transform: translateY(6px);
 	}
 	to {
 		opacity: 1;
-		transform: scale(1);
+		transform: translateY(0);
 	}
 }
-
-.reveal-up {
-	opacity: 0;
+.entry-fadein {
+	animation: entryFade 0.25s ease forwards;
 }
 
-.reveal-up.active {
-	animation: reveal-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+/* ── Component content fade in ── */
+@keyframes componentFade {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
-
-.reveal-stagger {
-	opacity: 0;
+.component-fadein {
+	animation: componentFade 0.35s ease 0.05s both;
 }
-
-.reveal-stagger.active {
-	animation: reveal-up 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-/* Global Smooth Hover Effects */
-.hover-shadow {
-	transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.hover-shadow:hover {
-	box-shadow: 4px 4px 0 black;
-	transform: translate(-3px, -3px);
-}
-
