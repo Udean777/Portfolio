@@ -1,38 +1,59 @@
-# sv
+# Sajudin Ma'ruf — Terminal Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A terminal-style portfolio built with SvelteKit 5 and Tailwind CSS v4. Navigate using commands just like a real terminal.
 
-## Creating a project
+🌐 **Live:** [sajudin.my.id](https://sajudin.my.id)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Tech Stack
+
+- [SvelteKit 5](https://kit.svelte.dev) — framework
+- [Svelte 5](https://svelte.dev) — runes-based reactivity
+- [Tailwind CSS v4](https://tailwindcss.com) — styling
+- [TypeScript](https://typescriptlang.org) — type safety
+- [Lucide Svelte](https://lucide.dev) — icons
+
+## Features
+
+- Terminal UI with command history (↑↓), tab autocomplete
+- CRT scanline effect
+- 5 built-in themes: `dark`, `light`, `matrix`, `espresso`, `ubuntu`
+- Boot sequence animation
+- SEO optimized — Open Graph, Twitter Card, JSON-LD structured data, sitemap
+
+## Commands
+
+| Command         | Description                 |
+| --------------- | --------------------------- |
+| `help`          | List all available commands |
+| `whoami`        | Short description about me  |
+| `about`         | About me                    |
+| `experience`    | Work experience             |
+| `skills`        | Tech stack & skills         |
+| `services`      | Services I offer            |
+| `projects`      | My projects                 |
+| `contact`       | Get in touch                |
+| `socials`       | Social media links          |
+| `resume`        | Download resume             |
+| `themes <name>` | Switch theme                |
+| `clear`         | Clear terminal              |
+
+## Getting Started
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+bun install
+bun run dev
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Build
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+bun run build
+bun run preview
 ```
 
-## Building
-
-To create a production version of your app:
+## Check & Lint
 
 ```bash
-npm run build
+bun run check
+bun run lint
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
