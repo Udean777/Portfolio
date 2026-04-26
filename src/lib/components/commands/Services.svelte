@@ -2,11 +2,13 @@
 	const services = [
 		{
 			title: 'Web Development',
-			description: 'Building fast, responsive, and modern websites using SvelteKit, React, or Next.js.'
+			description:
+				'Building fast, responsive, and modern websites using SvelteKit, React, or Sveltekit.'
 		},
 		{
 			title: 'Mobile Development',
-			description: 'Creating high-performance cross-platform mobile apps with Flutter or React Native.'
+			description:
+				'Creating high-performance cross-platform mobile apps with Flutter or React Native.'
 		},
 		{
 			title: 'Backend Development',

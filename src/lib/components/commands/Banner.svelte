@@ -54,11 +54,21 @@
 	<div class="mt-6 flex flex-col items-center justify-center gap-8 md:flex-row md:text-left">
 		<div class="flex flex-col items-center">
 			<p class="text-output text-base font-bold">Frontend & Mobile Developer</p>
-			<p class="text-muted mt-2 max-w-sm text-center text-sm leading-relaxed">
-				Information Technology student at Pembangunan Panca Budi University. Passionate about
-				building modern web and mobile applications using React, Sveltekit, and Flutter.
+			<p class="text-accent mt-1 text-sm">SvelteKit · React Native · Flutter · Sveltekit</p>
+
+			<p class="text-output mt-4 max-w-xl text-center text-sm leading-relaxed">
+				Hi, I'm <span class="text-accent font-bold">Sajudin Ma'ruf</span> — an Information
+				Technology student at <span class="text-command">Pembangunan Panca Budi University</span>. I
+				build modern web and mobile apps, and I'm always open to learning new things and
+				collaborating on interesting projects.
 			</p>
-			<p class="text-muted mt-3 text-sm">
+
+			<div class="text-muted mt-4 flex flex-wrap justify-center gap-x-6 gap-y-1 text-xs">
+				<span>📧 <span class="text-output">sajudinmaruf@gmail.com</span></span>
+				<span>🌐 <span class="text-output">sajudin.my.id</span></span>
+			</div>
+
+			<p class="text-muted mt-4 text-sm">
 				Type <button
 					onclick={() => oncommand('help')}
 					class="text-command cursor-pointer hover:underline">help</button
