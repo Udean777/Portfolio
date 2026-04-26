@@ -7,7 +7,7 @@ export const load: PageServerLoad = async () => {
 			description:
 				"Sajudin Ma'ruf is a Frontend & Mobile Developer specializing in JavaScript, TypeScript, Svelte, and React Native. Explore my projects and experience.",
 			url: 'https://sajudin.my.id/',
-			image: 'https://sajudin.my.id/images/profile-img.png'
+			image: 'https://sajudin.my.id/images/sajudin.jpeg'
 		}
 	};
 };
