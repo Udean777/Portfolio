@@ -3,9 +3,12 @@
 	import { history, addToHistory, clearHistory, type HistoryEntry } from '$lib/stores/history';
 	import { commandNames } from '$lib/utils/commands';
 	import { themeStore } from '$lib/stores/theme';
+	import { themes } from '$lib/utils/themes';
 	import TermInfo from './TermInfo.svelte';
 	import Output from './Output.svelte';
 	import Banner from './commands/Banner.svelte';
+
+	const themeNames = Object.keys(themes);
 
 	let input = $state('');
 	let inputEl: HTMLInputElement = $state()!;
@@ -18,6 +21,25 @@
 	let bannerVisible = $state(false);
 
 	const validCommands = new Set(commandNames);
+
+	// Derived state for zsh-autosuggestion style autocomplete
+	let suggestion = $derived.by(() => {
+		const trimmed = input.trim();
+		if (!trimmed) return '';
+
+		// Check if the user is typing themes command arguments
+		if (trimmed.startsWith('themes ')) {
+			const typedTheme = input.slice(7).toLowerCase();
+			if (!typedTheme) return '';
+			const match = themeNames.find((t) => t.startsWith(typedTheme));
+			return match ? match.slice(typedTheme.length) : '';
+		}
+
+		// Otherwise, suggest first matching command
+		if (trimmed.includes(' ')) return '';
+		const match = commandNames.find((c) => c.startsWith(trimmed.toLowerCase()));
+		return match ? match.slice(trimmed.length) : '';
+	});
 
 	const bootSequence = [
 		'Initializing system...',
@@ -95,10 +117,22 @@
 			}
 		}
 
-		if (e.key === 'Tab') {
+		// Auto-complete triggers (Tab or ArrowRight)
+		if (e.key === 'Tab' || (e.key === 'ArrowRight' && suggestion)) {
 			e.preventDefault();
-			const match = commandNames.find((c) => c.startsWith(input.toLowerCase()));
-			if (match) input = match;
+			const trimmed = input.trim();
+			if (trimmed.startsWith('themes ')) {
+				const typedTheme = input.slice(7).toLowerCase();
+				const match = themeNames.find((t) => t.startsWith(typedTheme));
+				if (match) {
+					input = 'themes ' + match;
+				}
+			} else {
+				const match = commandNames.find((c) => c.startsWith(trimmed.toLowerCase()));
+				if (match) {
+					input = match;
+				}
+			}
 		}
 	}
 
@@ -169,7 +203,9 @@
 					/>
 					<span class="text-command pointer-events-none whitespace-pre">{input}</span><span
 						class="text-accent blink-cursor pointer-events-none">█</span
-					>
+					>{#if suggestion}<span class="text-muted pointer-events-none whitespace-pre opacity-40"
+							>{suggestion}</span
+						>{/if}
 				</div>
 			</div>
 		</div>

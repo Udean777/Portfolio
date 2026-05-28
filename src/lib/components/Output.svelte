@@ -13,7 +13,11 @@
 	import Socials from './commands/Socials.svelte';
 	import Themes from './commands/Themes.svelte';
 	import Resume from './commands/Resume.svelte';
-	import Whoami from './commands/Whoami.svelte';
+	import Neofetch from './commands/Neofetch.svelte';
+	import Matrix from './commands/Matrix.svelte';
+	import Snake from './commands/Snake.svelte';
+	import Joke from './commands/Joke.svelte';
+	import Sudo from './commands/Sudo.svelte';
 	import { writable } from 'svelte/store';
 	import { onMount } from 'svelte';
 
@@ -63,7 +67,11 @@
 			{:else if entry.component === 'socials'}<Socials />
 			{:else if entry.component === 'themes'}<Themes />
 			{:else if entry.component === 'resume'}<Resume />
-			{:else if entry.component === 'whoami'}<Whoami />
+			{:else if entry.component === 'neofetch'}<Neofetch />
+			{:else if entry.component === 'matrix'}<Matrix />
+			{:else if entry.component === 'snake'}<Snake />
+			{:else if entry.component === 'joke'}<Joke />
+			{:else if entry.component === 'sudo'}<Sudo />
 			{/if}
 		</div>
 	{/if}

@@ -8,7 +8,6 @@
 
 	const allCommands = [
 		{ name: 'banner', description: 'Display welcome banner' },
-		{ name: 'whoami', description: 'Short description about me' },
 		{ name: 'home', description: 'Go to home section' },
 		{ name: 'experience', description: 'My work experience' },
 		{ name: 'contact', description: 'Get in touch' },
@@ -70,7 +69,7 @@
 		class="font-terminal-retro text-accent flex h-20 items-center justify-center text-5xl font-bold tracking-wider uppercase select-none sm:text-6xl md:h-24 md:text-8xl"
 	>
 		{displayText}<span class="text-accent blink-cursor ml-1 text-4xl sm:text-5xl md:text-7xl"
-			>█</span
+			>▌</span
 		>
 	</h1>
 

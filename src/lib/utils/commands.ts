@@ -7,7 +7,6 @@ export const commands: Command[] = [
 	{ name: 'banner', description: 'Display welcome banner' },
 	{ name: 'help', description: 'List all available commands' },
 	{ name: 'clear', description: 'Clear the terminal' },
-	{ name: 'whoami', description: 'Short description about me' },
 	{ name: 'home', description: 'Go to home section' },
 	{ name: 'about', description: 'About me' },
 	{ name: 'experience', description: 'My work experience' },
@@ -18,6 +17,11 @@ export const commands: Command[] = [
 	{ name: 'socials', description: 'My social media links' },
 	{ name: 'resume', description: 'Download my resume' },
 	{ name: 'themes', description: 'Switch terminal theme' },
+	{ name: 'neofetch', description: 'Display system information' },
+	{ name: 'matrix', description: 'Activate Matrix code rain' },
+	{ name: 'snake', description: 'Play retro Snake game' },
+	{ name: 'joke', description: 'Tell a random programmer joke' },
+	{ name: 'sudo', description: 'Comedic superuser privileges' }
 ];
 
 export const commandNames = commands.map((c) => c.name);

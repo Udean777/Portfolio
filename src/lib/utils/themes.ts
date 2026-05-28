@@ -1,4 +1,4 @@
-export type ThemeName = 'dark' | 'light' | 'matrix' | 'espresso' | 'ubuntu';
+export type ThemeName = 'dark' | 'light' | 'matrix' | 'espresso' | 'ubuntu' | 'dracula' | 'nord' | 'cyberpunk' | 'gruvbox';
 
 export type Theme = {
 	name: ThemeName;
@@ -78,6 +78,58 @@ export const themes: Record<ThemeName, Theme> = {
 			error: '#cc0000',
 			accent: '#e95420',
 			muted: '#875a7b',
+		},
+	},
+	dracula: {
+		name: 'dracula',
+		colors: {
+			background: '#282a36',
+			foreground: '#f8f8f2',
+			prompt: '#8be9fd',
+			command: '#ff79c6',
+			output: '#f8f8f2',
+			error: '#ff5555',
+			accent: '#50fa7b',
+			muted: '#6272a4',
+		},
+	},
+	nord: {
+		name: 'nord',
+		colors: {
+			background: '#2e3440',
+			foreground: '#d8dee9',
+			prompt: '#88c0d0',
+			command: '#81a1c1',
+			output: '#e5e9f0',
+			error: '#bf616a',
+			accent: '#a3be8c',
+			muted: '#4c566a',
+		},
+	},
+	cyberpunk: {
+		name: 'cyberpunk',
+		colors: {
+			background: '#0f051d',
+			foreground: '#00f0ff',
+			prompt: '#ff007f',
+			command: '#00f0ff',
+			output: '#e0e0ff',
+			error: '#ff3b30',
+			accent: '#ffee00',
+			muted: '#5c477a',
+		},
+	},
+	gruvbox: {
+		name: 'gruvbox',
+		colors: {
+			background: '#282828',
+			foreground: '#ebdbb2',
+			prompt: '#8ec07c',
+			command: '#fabd2f',
+			output: '#b8bb26',
+			error: '#fb4934',
+			accent: '#fe8019',
+			muted: '#928374',
 		},
 	},
 };
