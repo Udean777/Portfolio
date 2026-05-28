@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	let { oncommand = () => {} }: { oncommand?: (cmd: string) => void } = $props();
 
 	const quickMenus = ['about', 'skills', 'services', 'projects'];
@@ -16,41 +18,63 @@
 		{ name: 'clear', description: 'Clear the terminal' }
 	];
 
-	const asciiArt = `:::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::::;:;;::::::::::::::::::::::::::
-:::::::::::::::::::::::+%##@@@@@#S%?;::::::::::::::::::
-:::::,:::::::::::::::::*#######@@@@@@%:::::::::::::::::
-:::::::::::::::::::::::+*?????%##@@@@@%::::::::::::::::
-::::::::::::::::::::::;***???***S#####%::::::::::::::::
-:::::::::;;;;;::::::::;*?****?**?%?%%#+::::::::::::::::
-:::::;;;;;;;;;;;;;;:;:;*???*****????%*:::::::::::::::::
-::::;;;;++++++++++;;;:;??%??*****?%?+:::::::::::::::;::
-::::;;;;+++++++++++;;;:+???????%%%%?+:;;;;::::::::::;;:
-::;;;;+++++++++++++;;;+*%##SSS%%?%%%@@@@@@##S?+:::::;;;
-:;;;;;++++++++++++*?S#@@@@@#%SS%%%%S@@@@@@@@@@@S*:::;;;
-:;;;;++++++++*+++%#@@@@@@@@@@######@@@@@@@@@@@@@@S*::::
-;;;;;+++******++%#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@?;++
-;;;;+**+********#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@?+++
-;;+++********??S#@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@*+++
-;+++********%SS#@@@@@@@@@@@@@@#S%S#%S#S@@@@@@@@@@@#++++
-+++******???%##SSSS@@@@@@@@@@@S%??%S%S#@@@@@S%#@@@S;;;;
-++****?*????%@?**???#@@@@@@@@#@#SSS##@@@@@@@?+*?S%*;;;;
-******???????%***???#@@@@@@@@@@@@@@@@@####@@S%%%%%*;;;;
-*****?????????******??%S##@@@@@###SSS%??%%%%??????+::;;
-**?????????????********????%????%%?*++***????%%SSS+:::;
-++++;;;;;:::::;;;++**??????????%%%%??*;;;+++*****?;::;;`;
+	// Typing effect variables
+	let displayText = $state('');
+	const words = ['HELLO', 'MY NAME IS', 'SAJUDIN'];
+	let wordIndex = 0;
+	let charIndex = 0;
+	let isDeleting = false;
+	let typingSpeed = 100;
+
+	onMount(() => {
+		let timeoutId: any;
+		function type() {
+			const currentWord = words[wordIndex];
+			if (isDeleting) {
+				displayText = currentWord.substring(0, charIndex - 1);
+				charIndex--;
+				typingSpeed = 50; // deleting is faster
+			} else {
+				displayText = currentWord.substring(0, charIndex + 1);
+				charIndex++;
+				typingSpeed = 100; // regular typing speed
+			}
+
+			if (!isDeleting && charIndex === currentWord.length) {
+				if (wordIndex === words.length - 1) {
+					// Stop at the final word (SAJUDIN)
+					return;
+				}
+				typingSpeed = 1200; // Pause at the end of a word
+				isDeleting = true;
+			} else if (isDeleting && charIndex === 0) {
+				isDeleting = false;
+				wordIndex = (wordIndex + 1) % words.length;
+				typingSpeed = 400; // Pause before starting next word
+			}
+
+			timeoutId = setTimeout(type, typingSpeed);
+		}
+
+		type();
+
+		return () => {
+			clearTimeout(timeoutId);
+		};
+	});
 </script>
 
-<div class="border-muted mb-4 flex flex-col items-center border-b py-8 text-center">
-	<pre class="text-accent text-[0.6rem] leading-none select-none sm:text-xs md:text-sm">
-  ███████╗ █████╗      ██╗██╗   ██╗██████╗ ██╗███╗   ██╗
-  ██╔════╝██╔══██╗     ██║██║   ██║██╔══██╗██║████╗  ██║
-  ███████╗███████║     ██║██║   ██║██║  ██║██║██╔██╗ ██║
-  ╚════██║██╔══██║██   ██║██║   ██║██║  ██║██║██║╚██╗██║
-  ███████║██║  ██║╚█████╔╝╚██████╔╝██████╔╝██║██║ ╚████║
-  ╚══════╝╚═╝  ╚═╝ ╚════╝  ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝</pre>
+<div class="border-muted mb-4 flex flex-col items-center border-b px-4 py-8 text-center">
+	<!-- Responsive retro terminal styled header -->
+	<h1
+		class="font-terminal-retro text-accent flex h-20 items-center justify-center text-5xl font-bold tracking-wider uppercase select-none sm:text-6xl md:h-24 md:text-8xl"
+	>
+		{displayText}<span class="text-accent blink-cursor ml-1 text-4xl sm:text-5xl md:text-7xl"
+			>█</span
+		>
+	</h1>
 
+	<!-- Content is rendered immediately without waiting for typing to complete -->
 	<div class="mt-6 flex flex-col items-center justify-center gap-8 md:flex-row md:text-left">
 		<div class="flex flex-col items-center">
 			<p class="text-output text-base font-bold">Frontend & Mobile Developer</p>

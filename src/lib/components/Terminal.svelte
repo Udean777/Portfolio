@@ -9,7 +9,7 @@
 
 	let input = $state('');
 	let inputEl: HTMLInputElement = $state()!;
-	let containerEl: HTMLDivElement;
+	let containerEl: HTMLDivElement = $state()!;
 	let commandHistory: string[] = $state([]);
 	let historyIndex = $state(-1);
 
@@ -120,13 +120,12 @@
 </script>
 
 <div
-	class="terminal-bg crt min-h-screen cursor-text p-4 font-mono text-sm"
+	class="terminal-bg crt flex h-screen cursor-text flex-col overflow-hidden p-4 font-mono text-sm"
 	onclick={focusInput}
-	bind:this={containerEl}
 	role="presentation"
 >
 	{#if booting}
-		<div class="space-y-1 py-8">
+		<div class="flex-1 space-y-1 overflow-y-auto py-8">
 			{#each bootLines as line, i}
 				<p
 					class="boot-line text-muted"
@@ -139,32 +138,39 @@
 			<span class="text-accent blink-cursor">█</span>
 		</div>
 	{:else}
-		<div class="banner-fadein" class:visible={bannerVisible}>
+		<!-- Fixed Banner at the top -->
+		<div class="banner-fadein flex-none" class:visible={bannerVisible}>
 			<Banner oncommand={handleCommand} />
 		</div>
 
-		{#each $history as entry}
-			<Output {entry} />
-		{/each}
+		<!-- Scrollable history and sticky input area -->
+		<div class="min-h-0 flex-1 overflow-y-auto pr-1" bind:this={containerEl}>
+			<div class="space-y-2 py-2">
+				{#each $history as entry}
+					<Output {entry} />
+				{/each}
+			</div>
 
-		<div class="flex items-center gap-1">
-			<TermInfo />
-			<div class="relative flex flex-1 items-center">
-				<input
-					bind:this={inputEl}
-					bind:value={input}
-					onkeydown={handleKeydown}
-					class="text-command absolute inset-0 w-full bg-transparent outline-none focus:outline-none focus:ring-0 border-none"
-					style="caret-color: transparent; color: transparent;"
-					autocomplete="off"
-					autocorrect="off"
-					autocapitalize="off"
-					spellcheck={false}
-					aria-label="Terminal input"
-				/>
-				<span class="text-command pointer-events-none whitespace-pre">{input}</span><span
-					class="text-accent blink-cursor pointer-events-none">█</span
-				>
+			<!-- Sticky Input Prompt -->
+			<div class="sticky bottom-0 z-10 flex items-center gap-1 bg-[var(--color-background)] py-3">
+				<TermInfo />
+				<div class="relative flex flex-1 items-center">
+					<input
+						bind:this={inputEl}
+						bind:value={input}
+						onkeydown={handleKeydown}
+						class="text-command absolute inset-0 w-full border-none bg-transparent p-0 outline-none focus:ring-0 focus:outline-none"
+						style="caret-color: transparent; color: transparent;"
+						autocomplete="off"
+						autocorrect="off"
+						autocapitalize="off"
+						spellcheck={false}
+						aria-label="Terminal input"
+					/>
+					<span class="text-command pointer-events-none whitespace-pre">{input}</span><span
+						class="text-accent blink-cursor pointer-events-none">█</span
+					>
+				</div>
 			</div>
 		</div>
 	{/if}
