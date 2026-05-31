@@ -1,4 +1,4 @@
-export type ThemeName = 'dark' | 'light' | 'matrix' | 'espresso' | 'ubuntu' | 'dracula' | 'nord' | 'cyberpunk' | 'gruvbox';
+export type ThemeName = 'dark' | 'light' | 'matrix' | 'espresso' | 'ubuntu' | 'dracula' | 'nord' | 'cyberpunk' | 'gruvbox' | 'onedark' | 'github-dark' | 'synthwave';
 
 export type Theme = {
 	name: ThemeName;
@@ -130,6 +130,45 @@ export const themes: Record<ThemeName, Theme> = {
 			error: '#fb4934',
 			accent: '#fe8019',
 			muted: '#928374',
+		},
+	},
+	onedark: {
+		name: 'onedark',
+		colors: {
+			background: '#282c34',
+			foreground: '#abb2bf',
+			prompt: '#61afef',
+			command: '#c678dd',
+			output: '#abb2bf',
+			error: '#e06c75',
+			accent: '#98c379',
+			muted: '#5c6370',
+		},
+	},
+	'github-dark': {
+		name: 'github-dark',
+		colors: {
+			background: '#0d1117',
+			foreground: '#c9d1d9',
+			prompt: '#58a6ff',
+			command: '#bc8cff',
+			output: '#c9d1d9',
+			error: '#ff7b72',
+			accent: '#3fb950',
+			muted: '#8b949e',
+		},
+	},
+	synthwave: {
+		name: 'synthwave',
+		colors: {
+			background: '#2b213a',
+			foreground: '#f0eef5',
+			prompt: '#f92aad',
+			command: '#2de2e6',
+			output: '#f0eef5',
+			error: '#fe4450',
+			accent: '#ffee00',
+			muted: '#5c4d7d',
 		},
 	},
 };

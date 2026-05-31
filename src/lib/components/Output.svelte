@@ -5,17 +5,13 @@
 	import Help from './commands/Help.svelte';
 	import Home from './commands/Home.svelte';
 	import About from './commands/About.svelte';
-	import Experience from './commands/Experience.svelte';
-	import Skills from './commands/Skills.svelte';
-	import Services from './commands/Services.svelte';
 	import Projects from './commands/Projects.svelte';
 	import Contact from './commands/Contact.svelte';
-	import Socials from './commands/Socials.svelte';
 	import Themes from './commands/Themes.svelte';
-	import Resume from './commands/Resume.svelte';
 	import Neofetch from './commands/Neofetch.svelte';
 	import Matrix from './commands/Matrix.svelte';
-	import Snake from './commands/Snake.svelte';
+	import Github from './commands/Github.svelte';
+	import SoundCmd from './commands/SoundCmd.svelte';
 	import Joke from './commands/Joke.svelte';
 	import Sudo from './commands/Sudo.svelte';
 	import { writable } from 'svelte/store';
@@ -58,18 +54,14 @@
 			{#if entry.component === 'banner'}<Banner />
 			{:else if entry.component === 'help'}<Help />
 			{:else if entry.component === 'home'}<Home />
-			{:else if entry.component === 'about'}<About />
-			{:else if entry.component === 'experience'}<Experience />
-			{:else if entry.component === 'skills'}<Skills />
-			{:else if entry.component === 'services'}<Services />
+			{:else if entry.component === 'about' || entry.component === 'experience' || entry.component === 'skills' || entry.component === 'services'}<About />
 			{:else if entry.component === 'projects'}<Projects />
 			{:else if entry.component === 'contact'}<Contact />
-			{:else if entry.component === 'socials'}<Socials />
 			{:else if entry.component === 'themes'}<Themes />
-			{:else if entry.component === 'resume'}<Resume />
 			{:else if entry.component === 'neofetch'}<Neofetch />
 			{:else if entry.component === 'matrix'}<Matrix />
-			{:else if entry.component === 'snake'}<Snake />
+			{:else if entry.component === 'github'}<Github {entry} />
+			{:else if entry.component === 'sound'}<SoundCmd {entry} />
 			{:else if entry.component === 'joke'}<Joke />
 			{:else if entry.component === 'sudo'}<Sudo />
 			{/if}

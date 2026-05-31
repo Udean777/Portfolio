@@ -63,4 +63,10 @@
 	{@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 </svelte:head>
 
-<Terminal />
+<div class="flex h-screen flex-col overflow-hidden bg-[var(--color-background)] font-mono">
+	<div class="relative min-h-0 flex-1">
+		<div class="absolute inset-0">
+			<Terminal />
+		</div>
+	</div>
+</div>
