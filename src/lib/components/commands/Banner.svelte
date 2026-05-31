@@ -60,21 +60,25 @@
 	});
 </script>
 
-<div class="border-muted mb-4 flex flex-col items-center border-b px-4 py-8 text-center">
+<div class="border-muted mb-4 flex flex-col items-center border-b px-4 py-6 text-center md:py-8">
 	<!-- Responsive retro terminal styled header -->
 	<h1
-		class="font-terminal-retro text-accent flex h-20 items-center justify-center text-5xl font-bold tracking-wider uppercase select-none sm:text-6xl md:h-24 md:text-8xl"
+		class="font-terminal-retro text-accent flex h-16 items-center justify-center text-4xl font-bold tracking-wider uppercase select-none sm:h-20 sm:text-6xl md:h-24 md:text-8xl"
 	>
-		{displayText}<span class="text-accent blink-cursor ml-1 text-4xl sm:text-5xl md:text-7xl"
+		{displayText}<span class="text-accent blink-cursor ml-1 text-3xl sm:text-5xl md:text-7xl"
 			>▌</span
 		>
 	</h1>
 
 	<!-- Content is rendered immediately without waiting for typing to complete -->
-	<div class="mt-6 flex flex-col items-center justify-center gap-8 md:flex-row md:text-left">
+	<div
+		class="mt-4 flex flex-col items-center justify-center gap-8 md:mt-6 md:flex-row md:text-left"
+	>
 		<div class="flex flex-col items-center">
 			<p class="text-output text-base font-bold">Frontend & Mobile Developer</p>
-			<p class="text-accent mt-1 text-sm">SvelteKit · React Native · Flutter · Sveltekit</p>
+			<p class="text-accent mt-1 text-center text-sm">
+				SvelteKit · React Native · Flutter · TypeScript / Go
+			</p>
 
 			<div class="text-muted mt-4 flex flex-wrap justify-center gap-x-6 gap-y-1 text-xs">
 				<span>📧 <span class="text-output">sajudinmaruf@gmail.com</span></span>

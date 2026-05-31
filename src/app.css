@@ -168,3 +168,41 @@ body {
 .component-fadein {
 	animation: componentFade 0.35s ease 0.05s both;
 }
+
+/* ── Premium CRT Scanline Overlay ── */
+.crt {
+	position: relative;
+}
+.crt::after {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: linear-gradient(
+		rgba(18, 16, 16, 0) 50%,
+		rgba(0, 0, 0, 0.15) 50%
+	);
+	background-size: 100% 3px;
+	z-index: 20;
+	pointer-events: none;
+	opacity: 0.8;
+}
+
+/* ── Custom Sleek Scrollbar ── */
+::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--color-muted);
+	border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-accent);
+}
