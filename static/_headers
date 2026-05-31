@@ -1,0 +1,35 @@
+# Security & SEO Headers for Google Search Console
+# Applies to: Vercel / Netlify / Cloudflare Pages
+
+# All pages — security + crawler hints
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Sitemap — allow caching for crawlers
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=86400
+  X-Robots-Tag: noindex
+
+# robots.txt — no indexing of the file itself
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400
+  X-Robots-Tag: noindex
+
+# Manifest
+/manifest.json
+  Content-Type: application/manifest+json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+# Static images — long cache, allow Google Image Search
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Assets (fonts, etc.) — long cache
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

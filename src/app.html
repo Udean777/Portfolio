@@ -3,15 +3,42 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Theme & Appearance -->
 		<meta name="theme-color" content="#1a1b26" />
-		<meta name="robots" content="index, follow" />
-		<meta name="googlebot" content="index, follow" />
+		<meta name="color-scheme" content="dark" />
+		<meta name="msapplication-TileColor" content="#1a1b26" />
+
+		<!-- Crawling & Indexing -->
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+		<meta name="bingbot" content="index, follow" />
+
+		<!-- Author & Identity -->
 		<meta name="author" content="Sajudin Ma'ruf" />
-		<meta name="keywords" content="Sajudin Ma'ruf, frontend developer, mobile developer, portfolio, JavaScript, TypeScript, Svelte, React Native" />
+		<meta name="keywords" content="Sajudin Ma'ruf, frontend developer, mobile developer, portfolio, JavaScript, TypeScript, Svelte, React Native, SvelteKit" />
+		<meta name="generator" content="SvelteKit" />
+
+		<!-- Google Search Console Verification -->
+		<meta name="google-site-verification" content="1VYd-dR-cElM2VIvOdO6rtOKy6ZSWrpc9oeFwOhG3Xs" />
+
+		<!-- Favicon & Icons -->
 		<link rel="icon" href="%sveltekit.assets%/favicon.png?v=2" type="image/png" sizes="any" />
+		<link rel="apple-touch-icon" href="%sveltekit.assets%/favicon.png" />
+
+		<!-- PWA Manifest -->
+		<link rel="manifest" href="/manifest.json" />
+
+		<!-- Font Preconnects (performance) -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<meta name="google-site-verification" content="1VYd-dR-cElM2VIvOdO6rtOKy6ZSWrpc9oeFwOhG3Xs" />
+
+		<!-- DNS Prefetch for external resources -->
+		<link rel="dns-prefetch" href="https://github.com" />
+		<link rel="dns-prefetch" href="https://api.github.com" />
+		<link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
+
+		<!-- SvelteKit head injection -->
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
