@@ -17,6 +17,98 @@
 	--color-error: #f7768e;
 	--color-accent: #73daca;
 	--color-muted: #565f89;
+
+	/* macOS Desktop Shell — Dark Mode (default) */
+	--mac-bar: rgba(28, 28, 30, 0.72);
+	--mac-bar-border: rgba(255, 255, 255, 0.10);
+	--mac-bar-text: rgba(255, 255, 255, 0.92);
+	--mac-bar-text-dim: rgba(255, 255, 255, 0.50);
+	--mac-dropdown-bg: rgba(30, 30, 34, 0.96);
+	--mac-dropdown-border: rgba(255, 255, 255, 0.12);
+	--mac-dropdown-hover: rgba(255, 255, 255, 0.09);
+	--mac-dropdown-text: rgba(255, 255, 255, 0.90);
+	--mac-dropdown-text-dim: rgba(255, 255, 255, 0.40);
+	--mac-dropdown-separator: rgba(255, 255, 255, 0.08);
+	--mac-win-chrome: rgba(38, 38, 42, 0.82);
+	--mac-win-header: rgba(44, 44, 50, 0.90);
+	--mac-win-border: rgba(255, 255, 255, 0.13);
+	--mac-win-border-active: rgba(255, 255, 255, 0.22);
+	--mac-win-title: rgba(255, 255, 255, 0.88);
+	--mac-win-title-inactive: rgba(255, 255, 255, 0.35);
+	--mac-win-body: #1c1c1e;
+	--mac-dock-bg: rgba(30, 30, 34, 0.44);
+	--mac-dock-border: rgba(255, 255, 255, 0.14);
+	--mac-icon-bg: rgba(255, 255, 255, 0.08);
+	--mac-icon-border: rgba(255, 255, 255, 0.06);
+	--mac-surface: #2c2c2e;
+	--mac-surface-2: #3a3a3c;
+	--mac-surface-3: #48484a;
+	--mac-text: rgba(255, 255, 255, 0.92);
+	--mac-text-secondary: rgba(255, 255, 255, 0.55);
+	--mac-text-tertiary: rgba(255, 255, 255, 0.28);
+	--mac-separator: rgba(255, 255, 255, 0.08);
+	--mac-accent: #0a84ff;
+	--mac-accent-hover: #0070d8;
+	--mac-sidebar-bg: rgba(28, 28, 32, 0.95);
+	--mac-sidebar-border: rgba(255, 255, 255, 0.07);
+	--mac-sidebar-active: rgba(255, 255, 255, 0.10);
+	--mac-sidebar-text: rgba(255, 255, 255, 0.80);
+	--mac-scrollbar: rgba(255, 255, 255, 0.16);
+	--mac-input-bg: rgba(255, 255, 255, 0.06);
+	--mac-input-border: rgba(255, 255, 255, 0.12);
+	--mac-label-blue: #0a84ff;
+	--mac-label-green: #30d158;
+	--mac-label-orange: #ff9f0a;
+	--mac-label-red: #ff453a;
+	--mac-label-yellow: #ffd60a;
+	--mac-label-purple: #bf5af2;
+}
+
+/* macOS Desktop Shell — Light Mode */
+.mac-light {
+	--mac-bar: rgba(236, 236, 240, 0.78);
+	--mac-bar-border: rgba(0, 0, 0, 0.10);
+	--mac-bar-text: rgba(0, 0, 0, 0.88);
+	--mac-bar-text-dim: rgba(0, 0, 0, 0.45);
+	--mac-dropdown-bg: rgba(246, 246, 248, 0.98);
+	--mac-dropdown-border: rgba(0, 0, 0, 0.10);
+	--mac-dropdown-hover: rgba(0, 0, 0, 0.06);
+	--mac-dropdown-text: rgba(0, 0, 0, 0.88);
+	--mac-dropdown-text-dim: rgba(0, 0, 0, 0.38);
+	--mac-dropdown-separator: rgba(0, 0, 0, 0.08);
+	--mac-win-chrome: rgba(240, 240, 244, 0.88);
+	--mac-win-header: rgba(232, 232, 238, 0.96);
+	--mac-win-border: rgba(0, 0, 0, 0.12);
+	--mac-win-border-active: rgba(0, 0, 0, 0.20);
+	--mac-win-title: rgba(0, 0, 0, 0.82);
+	--mac-win-title-inactive: rgba(0, 0, 0, 0.32);
+	--mac-win-body: #f5f5f7;
+	--mac-dock-bg: rgba(220, 220, 228, 0.52);
+	--mac-dock-border: rgba(0, 0, 0, 0.14);
+	--mac-icon-bg: rgba(0, 0, 0, 0.06);
+	--mac-icon-border: rgba(0, 0, 0, 0.06);
+	--mac-surface: #f0f0f4;
+	--mac-surface-2: #e4e4ea;
+	--mac-surface-3: #d8d8e0;
+	--mac-text: rgba(0, 0, 0, 0.88);
+	--mac-text-secondary: rgba(0, 0, 0, 0.50);
+	--mac-text-tertiary: rgba(0, 0, 0, 0.26);
+	--mac-separator: rgba(0, 0, 0, 0.08);
+	--mac-accent: #007aff;
+	--mac-accent-hover: #0063cc;
+	--mac-sidebar-bg: rgba(240, 240, 244, 0.98);
+	--mac-sidebar-border: rgba(0, 0, 0, 0.07);
+	--mac-sidebar-active: rgba(0, 0, 0, 0.07);
+	--mac-sidebar-text: rgba(0, 0, 0, 0.75);
+	--mac-scrollbar: rgba(0, 0, 0, 0.18);
+	--mac-input-bg: rgba(0, 0, 0, 0.04);
+	--mac-input-border: rgba(0, 0, 0, 0.12);
+	--mac-label-blue: #007aff;
+	--mac-label-green: #28cd41;
+	--mac-label-orange: #ff9500;
+	--mac-label-red: #ff3b30;
+	--mac-label-yellow: #ffcc00;
+	--mac-label-purple: #af52de;
 }
 
 * {

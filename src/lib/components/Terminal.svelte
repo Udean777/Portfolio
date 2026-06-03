@@ -57,7 +57,6 @@
 		await new Promise((r) => setTimeout(r, 400));
 		booting = false;
 		await tick();
-		bannerVisible = true;
 		showMobileDeck = true;
 		inputEl?.focus();
 	}
@@ -275,35 +274,6 @@
 		</div>
 	{:else}
 		<!-- Floating Audio Control Switch (Web Audio API click feedback) -->
-		<button
-			onclick={(e) => {
-				e.stopPropagation();
-				const nextState = !$soundEnabled;
-				soundEnabled.set(nextState);
-				if (nextState) {
-					// AudioContext gets initialized/resumed on this user click interaction!
-					keyboardSound.playKeyClick();
-				}
-			}}
-			class="border-accent/20 bg-muted/10 hover:bg-muted/20 text-accent absolute top-4 right-4 z-50 flex cursor-pointer items-center justify-center rounded-full border p-2 font-mono text-[10px] shadow-[0_0_8px_var(--color-accent)] transition-all duration-200"
-			style="box-shadow: 0 0 10px rgba(115, 218, 202, 0.15);"
-			aria-label="Toggle Keyboard Sounds"
-		>
-			{#if $soundEnabled}
-				🔊 <span class="ml-1 hidden text-[9px] font-bold tracking-wider uppercase sm:inline"
-					>Sound On</span
-				>
-			{:else}
-				🔇 <span class="ml-1 hidden text-[9px] font-bold tracking-wider uppercase sm:inline"
-					>Muted</span
-				>
-			{/if}
-		</button>
-
-		<!-- Fixed Banner at the top -->
-		<div class="banner-fadein flex-none" class:visible={bannerVisible}>
-			<Banner oncommand={handleCommand} />
-		</div>
 
 		<!-- Scrollable history and sticky input area -->
 		<div class="min-h-0 flex-1 overflow-y-auto pr-1" bind:this={containerEl}>
