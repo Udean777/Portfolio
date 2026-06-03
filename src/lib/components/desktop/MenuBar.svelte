@@ -9,9 +9,6 @@
 	let openMenu = $state<string | null>(null);
 	let showControlCenter = $state(false);
 	let showCalendar = $state(false);
-	let desktopState = $state<any>(null);
-
-	const unsubDesktop = desktopStore.subscribe((s) => (desktopState = s));
 
 	function updateTime() {
 		const now = new Date();
@@ -32,7 +29,6 @@
 		const interval = setInterval(updateTime, 1000);
 		return () => {
 			clearInterval(interval);
-			unsubDesktop();
 		};
 	});
 
@@ -70,16 +66,16 @@
 		else if (action === 'notes') desktopStore.openWindow('notes');
 		else if (action === 'mail') desktopStore.openWindow('mail');
 		else if (action === 'closeActive') {
-			if (desktopState?.activeWindowId) desktopStore.closeWindow(desktopState.activeWindowId);
+			if ($desktopStore.activeWindowId) desktopStore.closeWindow($desktopStore.activeWindowId);
 		} else if (action === 'minimizeActive') {
-			if (desktopState?.activeWindowId) desktopStore.minimizeWindow(desktopState.activeWindowId);
+			if ($desktopStore.activeWindowId) desktopStore.minimizeWindow($desktopStore.activeWindowId);
 		} else if (action === 'fullscreenActive') {
-			if (desktopState?.activeWindowId) desktopStore.toggleFullscreen(desktopState.activeWindowId);
+			if ($desktopStore.activeWindowId) desktopStore.toggleFullscreen($desktopStore.activeWindowId);
 		}
 	}
 
 	const activeApp = $derived(() => {
-		const id = desktopState?.activeWindowId;
+		const id = $desktopStore.activeWindowId;
 		if (!id) return 'Finder';
 		const map: Record<string, string> = {
 			terminal: 'Terminal',
@@ -328,21 +324,21 @@
 						<!-- Dark/Light Mode -->
 						<button
 							class="cc-tile"
-							class:cc-tile-active={desktopState?.desktopTheme === 'dark'}
-							aria-label={desktopState?.desktopTheme === 'dark' ? 'Dark Mode (active)' : 'Light Mode'}
+							class:cc-tile-active={$desktopStore.desktopTheme === 'dark'}
+							aria-label={$desktopStore.desktopTheme === 'dark' ? 'Dark Mode (active)' : 'Light Mode'}
 							onclick={() => {
-								const next = desktopState?.desktopTheme === 'dark' ? 'light' : 'dark';
+								const next = $desktopStore.desktopTheme === 'dark' ? 'light' : 'dark';
 								desktopStore.setDesktopTheme(next);
 							}}
 						>
 							<div class="cc-tile-icon">
-								{#if desktopState?.desktopTheme === 'dark'}
+								{#if $desktopStore.desktopTheme === 'dark'}
 									<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
 								{:else}
 									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 								{/if}
 							</div>
-							<div class="cc-tile-label">{desktopState?.desktopTheme === 'dark' ? 'Dark Mode' : 'Light Mode'}</div>
+							<div class="cc-tile-label">{$desktopStore.desktopTheme === 'dark' ? 'Dark Mode' : 'Light Mode'}</div>
 						</button>
 
 						<!-- Wi-Fi (decorative) -->

@@ -56,15 +56,15 @@
 		}
 
 		el.addEventListener('touchstart', touchStart, { passive: true });
-		el.addEventListener('touchmove',  touchMove,  { passive: false });
-		el.addEventListener('touchend',   touchEnd,   { passive: true });
-		el.addEventListener('touchcancel',touchEnd,   { passive: true });
+		el.addEventListener('touchmove', touchMove, { passive: false });
+		el.addEventListener('touchend', touchEnd, { passive: true });
+		el.addEventListener('touchcancel', touchEnd, { passive: true });
 
 		return () => {
 			el.removeEventListener('touchstart', touchStart);
-			el.removeEventListener('touchmove',  touchMove);
-			el.removeEventListener('touchend',   touchEnd);
-			el.removeEventListener('touchcancel',touchEnd);
+			el.removeEventListener('touchmove', touchMove);
+			el.removeEventListener('touchend', touchEnd);
+			el.removeEventListener('touchcancel', touchEnd);
 		};
 	});
 
@@ -77,7 +77,7 @@
 		dragDx = 0;
 		lockAxis = null;
 		window.addEventListener('mousemove', onMouseMove);
-		window.addEventListener('mouseup',   onMouseUp);
+		window.addEventListener('mouseup', onMouseUp);
 	}
 
 	function onMouseMove(e: MouseEvent) {
@@ -93,7 +93,7 @@
 
 	function onMouseUp() {
 		window.removeEventListener('mousemove', onMouseMove);
-		window.removeEventListener('mouseup',   onMouseUp);
+		window.removeEventListener('mouseup', onMouseUp);
 		if (!isDown) return;
 		commit();
 		isDown = false;
@@ -120,31 +120,27 @@
 	// ── Data ──────────────────────────────────────────────────────
 	const widgetPageApps = [
 		{ id: 'notes', label: 'Notes' },
-		{ id: 'mail',  label: 'Mail'  },
+		{ id: 'mail', label: 'Mail' }
 	];
 
 	const allApps = [
-		{ id: 'notes',    label: 'Notes'    },
-		{ id: 'safari',   label: 'Safari'   },
-		{ id: 'finder',   label: 'Finder'   },
-		{ id: 'mail',     label: 'Mail'     },
-		{ id: 'settings', label: 'Settings' },
+		{ id: 'notes', label: 'Notes' },
+		{ id: 'safari', label: 'Safari' },
+		{ id: 'finder', label: 'Finder' },
+		{ id: 'mail', label: 'Mail' },
+		{ id: 'settings', label: 'Settings' }
 	];
 
 	const trackStyle = $derived(
 		`transform: translateX(calc(${currentPage * -100}vw + ${dragging ? dragDx : 0}px));` +
-		`transition: ${dragging ? 'none' : 'transform 0.38s cubic-bezier(0.16,1,0.3,1)'};`
+			`transition: ${dragging ? 'none' : 'transform 0.38s cubic-bezier(0.16,1,0.3,1)'};`
 	);
 </script>
 
 <div class="homescreen">
 	<!-- clip wrapper — touch & mouse attached here -->
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div
-		class="slides-clip"
-		bind:this={clipEl}
-		onmousedown={onMouseDown}
-	>
+	<div class="slides-clip" bind:this={clipEl} onmousedown={onMouseDown}>
 		<div class="slides-track" style={trackStyle}>
 			<!-- Slide 1: hero + widgets + 2 apps -->
 			<div class="slide">
@@ -162,7 +158,7 @@
 					<Widget type="clock" size="full" />
 					<div class="widget-row">
 						<Widget type="profile" size="half" />
-						<Widget type="skills"  size="half" />
+						<Widget type="skills" size="half" />
 					</div>
 					<div class="app-row">
 						{#each widgetPageApps as app, i}
@@ -203,12 +199,12 @@
 
 	<!-- Dots -->
 	<div class="dots">
-		{#each [0,1] as p}
+		{#each [0, 1] as p}
 			<button
 				class="dot"
 				class:active={currentPage === p}
 				onclick={() => (currentPage = p)}
-				aria-label="Page {p+1}"
+				aria-label="Page {p + 1}"
 			></button>
 		{/each}
 	</div>
@@ -233,7 +229,9 @@
 		touch-action: pan-y; /* allow vertical scroll, intercept horizontal */
 	}
 
-	.slides-clip:active { cursor: grabbing; }
+	.slides-clip:active {
+		cursor: grabbing;
+	}
 
 	/* Track holds both slides side-by-side, each 100vw wide */
 	.slides-track {
@@ -253,7 +251,9 @@
 		scrollbar-width: none;
 		-ms-overflow-style: none;
 	}
-	.slide::-webkit-scrollbar { display: none; }
+	.slide::-webkit-scrollbar {
+		display: none;
+	}
 
 	.slide-inner {
 		padding: 14px 18px 20px;
@@ -293,22 +293,30 @@
 		cursor: pointer;
 		padding: 0;
 		opacity: 0;
-		animation: popIn 0.38s cubic-bezier(0.16,1,0.3,1) forwards;
+		animation: popIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 		-webkit-tap-highlight-color: transparent;
 		touch-action: manipulation;
 	}
 
 	@keyframes popIn {
-		from { opacity: 0; transform: scale(0.72); }
-		to   { opacity: 1; transform: scale(1); }
+		from {
+			opacity: 0;
+			transform: scale(0.72);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 
-	.app-btn:active .app-icon { transform: scale(0.88); }
+	.app-btn:active .app-icon {
+		transform: scale(0.88);
+	}
 
 	.app-icon {
 		width: 60px;
 		height: 60px;
-		filter: drop-shadow(0 3px 10px rgba(0,0,0,0.28));
+		filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.28));
 		transition: transform 0.1s;
 	}
 
@@ -316,8 +324,8 @@
 		font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
 		font-size: 11px;
 		font-weight: 500;
-		color: rgba(255,255,255,0.9);
-		text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+		color: rgba(255, 255, 255, 0.9);
+		text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 		text-align: center;
 	}
 
@@ -334,23 +342,36 @@
 		width: 7px;
 		height: 7px;
 		border-radius: 50%;
-		background: rgba(255,255,255,0.28);
+		background: rgba(255, 255, 255, 0.28);
 		border: none;
 		cursor: pointer;
 		padding: 0;
-		transition: background 0.2s, transform 0.2s;
+		transition:
+			background 0.2s,
+			transform 0.2s;
 	}
 
 	.dot.active {
-		background: rgba(255,255,255,0.85);
+		background: rgba(255, 255, 255, 0.85);
 		transform: scale(1.2);
 	}
 
 	@media (max-width: 380px) {
-		.slide-inner { padding: 10px 14px 16px; gap: 10px; }
-		.widget-row { min-height: 100px; gap: 8px; }
-		.app-icon { width: 52px; height: 52px; }
-		.apps-grid { gap: 18px 0; }
+		.slide-inner {
+			padding: 10px 14px 16px;
+			gap: 10px;
+		}
+		.widget-row {
+			min-height: 100px;
+			gap: 8px;
+		}
+		.app-icon {
+			width: 52px;
+			height: 52px;
+		}
+		.apps-grid {
+			gap: 18px 0;
+		}
 	}
 
 	/* iPhone hero */
@@ -359,12 +380,18 @@
 		align-items: center;
 		gap: 12px;
 		padding: 4px 2px 2px;
-		animation: phHeroIn 0.55s cubic-bezier(0.16,1,0.3,1) both;
+		animation: phHeroIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
 	}
 
 	@keyframes phHeroIn {
-		from { opacity: 0; transform: translateY(12px); }
-		to   { opacity: 1; transform: translateY(0); }
+		from {
+			opacity: 0;
+			transform: translateY(12px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	.ph-avatar {
@@ -372,17 +399,21 @@
 		height: 48px;
 		border-radius: 50%;
 		object-fit: cover;
-		border: 2px solid rgba(255,255,255,0.25);
-		box-shadow: 0 2px 12px rgba(0,0,0,0.32);
+		border: 2px solid rgba(255, 255, 255, 0.25);
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 		flex-shrink: 0;
 	}
 
-	.ph-hero-body { display: flex; flex-direction: column; gap: 1px; }
+	.ph-hero-body {
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+	}
 
 	.ph-greeting {
 		font-size: 10px;
 		font-weight: 500;
-		color: rgba(255,255,255,0.40);
+		color: rgba(255, 255, 255, 0.4);
 		margin: 0;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
@@ -391,16 +422,41 @@
 	.ph-name {
 		font-size: 18px;
 		font-weight: 700;
-		color: rgba(255,255,255,0.95);
+		color: rgba(255, 255, 255, 0.95);
 		margin: 0;
 		letter-spacing: -0.03em;
-		text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+		text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
 	}
 
 	.ph-role {
 		font-size: 12px;
-		color: rgba(255,255,255,0.50);
+		color: rgba(255, 255, 255, 0.5);
 		margin: 0;
 		font-weight: 400;
+	}
+
+	/* Light mode styles */
+	:global(.mac-light) .ph-greeting {
+		color: rgba(0, 0, 0, 0.4);
+	}
+	:global(.mac-light) .ph-name {
+		color: rgba(0, 0, 0, 0.85);
+		text-shadow: none;
+	}
+	:global(.mac-light) .ph-role {
+		color: rgba(0, 0, 0, 0.5);
+	}
+	:global(.mac-light) .ph-avatar {
+		border-color: rgba(0, 0, 0, 0.12);
+	}
+	:global(.mac-light) .app-label {
+		color: rgba(0, 0, 0, 0.8);
+		text-shadow: none;
+	}
+	:global(.mac-light) .dot {
+		background: rgba(0, 0, 0, 0.18);
+	}
+	:global(.mac-light) .dot.active {
+		background: rgba(0, 0, 0, 0.65);
 	}
 </style>

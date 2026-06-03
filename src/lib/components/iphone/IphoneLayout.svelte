@@ -11,16 +11,22 @@
 
 	let openAppId = $state<string | null>(null);
 
-	function openApp(id: string) { openAppId = id; }
-	function closeApp() { openAppId = null; }
+	function openApp(id: string) {
+		openAppId = id;
+	}
+	function closeApp() {
+		openAppId = null;
+	}
 
 	// Map desktopTheme to iPhone wallpaper
-	const wallpaper = $derived(
-		$ds.desktopTheme === 'light' ? IPHONE_WALLPAPERS[6].value : IPHONE_WALLPAPERS[0].value
-	);
+	const wallpaper = $derived($desktopStore.wallpaper);
 </script>
 
-<div class="iphone-root" class:mac-light={$ds.desktopTheme === 'light'} style="background:{wallpaper};">
+<div
+	class="iphone-root"
+	class:mac-light={$desktopStore.desktopTheme === 'light'}
+	style="background:{wallpaper};"
+>
 	<div class="noise"></div>
 
 	<DynamicIsland />

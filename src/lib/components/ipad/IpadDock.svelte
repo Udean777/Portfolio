@@ -9,11 +9,11 @@
 	let { windows, onopen }: Props = $props();
 
 	const dockApps = [
-		{ id: 'finder',   label: 'Finder'   },
-		{ id: 'safari',   label: 'Safari'   },
-		{ id: 'notes',    label: 'Notes'    },
-		{ id: 'mail',     label: 'Mail'     },
-		{ id: 'settings', label: 'Settings' },
+		{ id: 'finder', label: 'Finder' },
+		{ id: 'safari', label: 'Safari' },
+		{ id: 'notes', label: 'Notes' },
+		{ id: 'mail', label: 'Mail' },
+		{ id: 'settings', label: 'Settings' }
 	];
 
 	function isOpen(id: string) {
@@ -41,7 +41,8 @@
 	.ipad-dock-bar {
 		position: absolute;
 		bottom: 16px;
-		left: 0; right: 0;
+		left: 0;
+		right: 0;
 		display: flex;
 		justify-content: center;
 		z-index: 50;
@@ -49,8 +50,14 @@
 	}
 
 	@keyframes dockUp {
-		from { opacity: 0; transform: translateY(28px); }
-		to   { opacity: 1; transform: translateY(0); }
+		from {
+			opacity: 0;
+			transform: translateY(28px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	.ipad-dock {
@@ -61,9 +68,9 @@
 		background: rgba(30, 30, 40, 0.48);
 		backdrop-filter: blur(32px) saturate(180%);
 		-webkit-backdrop-filter: blur(32px) saturate(180%);
-		border: 1px solid rgba(255,255,255,0.14);
+		border: 1px solid rgba(255, 255, 255, 0.14);
 		border-radius: 26px;
-		box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 	}
 
 	.idk-item {
@@ -80,18 +87,21 @@
 		transition: transform 0.14s ease;
 	}
 
-	.idk-item:active { transform: scale(0.88); }
+	.idk-item:active {
+		transform: scale(0.88);
+	}
 
 	.idk-icon {
 		width: 54px;
 		height: 54px;
-		filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+		filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 	}
 
 	.idk-dot {
-		width: 4px; height: 4px;
+		width: 4px;
+		height: 4px;
 		border-radius: 50%;
-		background: rgba(255,255,255,0.75);
+		background: rgba(255, 255, 255, 0.75);
 		position: absolute;
 		bottom: -6px;
 	}
@@ -101,9 +111,9 @@
 		bottom: calc(100% + 14px);
 		left: 50%;
 		transform: translateX(-50%) scale(0.9);
-		background: rgba(28,28,32,0.92);
+		background: rgba(28, 28, 32, 0.92);
 		backdrop-filter: blur(12px);
-		color: rgba(255,255,255,0.9);
+		color: rgba(255, 255, 255, 0.9);
 		font-family: -apple-system, sans-serif;
 		font-size: 11px;
 		font-weight: 500;
@@ -112,8 +122,10 @@
 		white-space: nowrap;
 		opacity: 0;
 		pointer-events: none;
-		transition: opacity 0.14s, transform 0.14s;
-		border: 1px solid rgba(255,255,255,0.1);
+		transition:
+			opacity 0.14s,
+			transform 0.14s;
+		border: 1px solid rgba(255, 255, 255, 0.1);
 	}
 
 	.idk-item:hover .idk-tooltip {

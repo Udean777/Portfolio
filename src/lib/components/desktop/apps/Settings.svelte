@@ -8,8 +8,6 @@
 	type Section = 'general' | 'wallpaper' | 'appearance' | 'sound' | 'about';
 
 	let activeSection = $state<Section>('general');
-	let desktopState = $state<any>(null);
-	const unsub = desktopStore.subscribe((s) => (desktopState = s));
 
 	const sections: { id: Section; icon: string; label: string }[] = [
 		{ id: 'general', icon: 'general', label: 'General' },
@@ -84,7 +82,7 @@
 						<div class="appearance-toggle">
 							<button
 								class="appearance-option"
-								class:appearance-active={desktopState?.desktopTheme === 'dark'}
+								class:appearance-active={$desktopStore.desktopTheme === 'dark'}
 								onclick={() => desktopStore.setDesktopTheme('dark')}
 							>
 								<div class="appearance-preview dark-preview">
@@ -95,7 +93,7 @@
 							</button>
 							<button
 								class="appearance-option"
-								class:appearance-active={desktopState?.desktopTheme === 'light'}
+								class:appearance-active={$desktopStore.desktopTheme === 'light'}
 								onclick={() => desktopStore.setDesktopTheme('light')}
 							>
 								<div class="appearance-preview light-preview">
@@ -137,12 +135,12 @@
 						{#each WALLPAPERS as wp}
 							<button
 								class="wallpaper-thumb"
-								class:wp-active={desktopState?.wallpaper === wp.value}
+								class:wp-active={$desktopStore.wallpaper === wp.value}
 								style="background:{wp.value};"
 								onclick={() => desktopStore.setWallpaper(wp.value)}
 								title={wp.label}
 							>
-								{#if desktopState?.wallpaper === wp.value}
+								{#if $desktopStore.wallpaper === wp.value}
 									<div class="wp-check">
 										<svg width="12" height="12" viewBox="0 0 16 16"><polyline points="3 8 6.5 12 13 4" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
 									</div>
@@ -152,7 +150,7 @@
 					</div>
 					<div class="wp-labels">
 						{#each WALLPAPERS as wp}
-							<span class="wp-label" class:wp-label-active={desktopState?.wallpaper === wp.value}>{wp.label}</span>
+							<span class="wp-label" class:wp-label-active={$desktopStore.wallpaper === wp.value}>{wp.label}</span>
 						{/each}
 					</div>
 				</div>

@@ -110,4 +110,20 @@
 		.w-name { font-size: 13px; }
 		.skill-name { font-size: 11px; }
 	}
+
+	/* Light mode styles */
+	:global(.mac-light) .widget {
+		background: rgba(255, 255, 255, 0.72);
+		border-color: rgba(0, 0, 0, 0.12);
+		color: rgba(0, 0, 0, 0.88);
+	}
+	:global(.mac-light) .w-greeting { color: rgba(0,0,0,0.45); }
+	:global(.mac-light) .w-time { color: rgba(0,0,0,0.92); }
+	:global(.mac-light) .w-date { color: rgba(0,0,0,0.5); }
+	:global(.mac-light) .w-avatar { border-color: rgba(0,0,0,0.12); }
+	:global(.mac-light) .w-role { color: rgba(0,0,0,0.5); }
+	:global(.mac-light) .w-loc { color: rgba(0,0,0,0.4); }
+	:global(.mac-light) .w-loc svg { fill: rgba(0,0,0,0.4); }
+	:global(.mac-light) .w-skills-title { color: rgba(0,0,0,0.45); }
+	:global(.mac-light) .skill-name { color: rgba(0,0,0,0.80); }
 </style>

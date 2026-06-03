@@ -108,4 +108,18 @@
 		background: rgba(255,255,255,0.6);
 		border-radius: 0 1px 1px 0;
 	}
+
+	/* Light mode styles */
+	:global(.mac-light) .ipad-statusbar {
+		color: rgba(0, 0, 0, 0.88);
+	}
+	:global(.mac-light) .ipad-statusbar .battery-body {
+		border-color: rgba(0, 0, 0, 0.7);
+	}
+	:global(.mac-light) .ipad-statusbar .battery-fill {
+		background: rgba(0, 0, 0, 0.8);
+	}
+	:global(.mac-light) .ipad-statusbar .battery-tip {
+		background: rgba(0, 0, 0, 0.5);
+	}
 </style>

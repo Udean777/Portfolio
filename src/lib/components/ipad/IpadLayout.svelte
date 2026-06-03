@@ -10,12 +10,14 @@
 
 	let openAppId = $state<string | null>(null);
 
-	function openApp(id: string) { openAppId = id; }
-	function closeApp() { openAppId = null; }
+	function openApp(id: string) {
+		openAppId = id;
+	}
+	function closeApp() {
+		openAppId = null;
+	}
 
-	const wallpaper = $derived(
-		$ds.desktopTheme === 'light' ? IPAD_WALLPAPERS[6].value : IPAD_WALLPAPERS[0].value
-	);
+	const wallpaper = $derived($desktopStore.wallpaper);
 
 	const tags = ['Frontend Dev', 'Mobile Dev', 'SvelteKit', 'React Native'];
 
@@ -27,7 +29,11 @@
 	}
 </script>
 
-<div class="ipad-root" class:mac-light={$ds.desktopTheme === 'light'} style="background:{wallpaper};">
+<div
+	class="ipad-root"
+	class:mac-light={$desktopStore.desktopTheme === 'light'}
+	style="background:{wallpaper};"
+>
 	<div class="noise"></div>
 	<StatusBar />
 
@@ -59,7 +65,7 @@
 		<AppShell appId={openAppId} onclose={closeApp} />
 	{/if}
 
-	<IpadDock windows={$ds.windows} onopen={openApp} />
+	<IpadDock windows={$desktopStore.windows} onopen={openApp} />
 </div>
 
 <style>
@@ -85,7 +91,8 @@
 	.ipad-main {
 		position: absolute;
 		top: 44px;
-		left: 0; right: 0;
+		left: 0;
+		right: 0;
 		bottom: 100px;
 		overflow-y: auto;
 		z-index: 10;
@@ -99,12 +106,18 @@
 		align-items: center;
 		gap: 20px;
 		padding: 28px 36px 16px;
-		animation: fadeUp 0.65s cubic-bezier(0.16,1,0.3,1) both;
+		animation: fadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
 	}
 
 	@keyframes fadeUp {
-		from { opacity: 0; transform: translateY(18px); }
-		to   { opacity: 1; transform: translateY(0); }
+		from {
+			opacity: 0;
+			transform: translateY(18px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	.hero-avatar-wrap {
@@ -117,8 +130,8 @@
 		height: 72px;
 		border-radius: 50%;
 		object-fit: cover;
-		border: 2.5px solid rgba(255,255,255,0.28);
-		box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+		border: 2.5px solid rgba(255, 255, 255, 0.28);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 		display: block;
 	}
 
@@ -126,22 +139,33 @@
 		position: absolute;
 		inset: -5px;
 		border-radius: 50%;
-		border: 1.5px solid rgba(255,255,255,0.14);
+		border: 1.5px solid rgba(255, 255, 255, 0.14);
 		animation: ringPulse 3s ease-in-out infinite;
 		pointer-events: none;
 	}
 
 	@keyframes ringPulse {
-		0%, 100% { opacity: 0.35; transform: scale(1); }
-		50%       { opacity: 0.85; transform: scale(1.04); }
+		0%,
+		100% {
+			opacity: 0.35;
+			transform: scale(1);
+		}
+		50% {
+			opacity: 0.85;
+			transform: scale(1.04);
+		}
 	}
 
-	.hero-body { display: flex; flex-direction: column; gap: 3px; }
+	.hero-body {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+	}
 
 	.hero-greeting {
 		font-size: 12px;
 		font-weight: 400;
-		color: rgba(255,255,255,0.45);
+		color: rgba(255, 255, 255, 0.45);
 		margin: 0;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
@@ -151,15 +175,15 @@
 		margin: 0;
 		font-size: 28px;
 		font-weight: 700;
-		color: rgba(255,255,255,0.96);
+		color: rgba(255, 255, 255, 0.96);
 		letter-spacing: -0.03em;
-		text-shadow: 0 2px 16px rgba(0,0,0,0.35);
+		text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
 	}
 
 	.hero-role {
 		margin: 0;
 		font-size: 14px;
-		color: rgba(255,255,255,0.55);
+		color: rgba(255, 255, 255, 0.55);
 		font-weight: 400;
 	}
 
@@ -172,23 +196,32 @@
 
 	.hero-tag {
 		padding: 3px 10px;
-		background: rgba(255,255,255,0.10);
-		border: 1px solid rgba(255,255,255,0.16);
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.16);
 		border-radius: 20px;
 		font-size: 11px;
 		font-weight: 500;
-		color: rgba(255,255,255,0.72);
+		color: rgba(255, 255, 255, 0.72);
 		backdrop-filter: blur(8px);
 	}
 
 	/* Light mode */
-	.mac-light .hero-greeting { color: rgba(0,0,0,0.38); }
-	.mac-light .hero-name { color: rgba(0,0,0,0.88); text-shadow: none; }
-	.mac-light .hero-role { color: rgba(0,0,0,0.50); }
-	.mac-light .hero-avatar { border-color: rgba(0,0,0,0.14); }
+	.mac-light .hero-greeting {
+		color: rgba(0, 0, 0, 0.38);
+	}
+	.mac-light .hero-name {
+		color: rgba(0, 0, 0, 0.88);
+		text-shadow: none;
+	}
+	.mac-light .hero-role {
+		color: rgba(0, 0, 0, 0.5);
+	}
+	.mac-light .hero-avatar {
+		border-color: rgba(0, 0, 0, 0.14);
+	}
 	.mac-light .hero-tag {
-		background: rgba(0,0,0,0.07);
-		border-color: rgba(0,0,0,0.12);
-		color: rgba(0,0,0,0.60);
+		background: rgba(0, 0, 0, 0.07);
+		border-color: rgba(0, 0, 0, 0.12);
+		color: rgba(0, 0, 0, 0.6);
 	}
 </style>

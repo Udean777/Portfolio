@@ -7,10 +7,10 @@
 	let { onopen }: Props = $props();
 
 	const dockItems = [
-		{ id: 'finder',   label: 'Finder'   },
-		{ id: 'safari',   label: 'Safari'   },
-		{ id: 'mail',     label: 'Mail'     },
-		{ id: 'settings', label: 'Settings' },
+		{ id: 'finder', label: 'Finder' },
+		{ id: 'safari', label: 'Safari' },
+		{ id: 'mail', label: 'Mail' },
+		{ id: 'settings', label: 'Settings' }
 	];
 </script>
 
@@ -30,7 +30,9 @@
 <style>
 	.iphone-dock-area {
 		position: absolute;
-		bottom: 0; left: 0; right: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -47,15 +49,21 @@
 		background: rgba(28, 28, 36, 0.5);
 		backdrop-filter: blur(32px) saturate(180%);
 		-webkit-backdrop-filter: blur(32px) saturate(180%);
-		border: 1px solid rgba(255,255,255,0.12);
+		border: 1px solid rgba(255, 255, 255, 0.12);
 		border-radius: 26px;
-		box-shadow: 0 4px 20px rgba(0,0,0,0.28);
-		animation: dockSlide 0.55s cubic-bezier(0.16,1,0.3,1) 0.25s both;
+		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+		animation: dockSlide 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
 	}
 
 	@keyframes dockSlide {
-		from { opacity: 0; transform: translateY(24px); }
-		to   { opacity: 1; transform: translateY(0); }
+		from {
+			opacity: 0;
+			transform: translateY(24px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	.ph-dock-btn {
@@ -67,23 +75,31 @@
 		transition: transform 0.12s;
 	}
 
-	.ph-dock-btn:active { transform: scale(0.86); }
+	.ph-dock-btn:active {
+		transform: scale(0.86);
+	}
 
 	.ph-icon {
 		width: 52px;
 		height: 52px;
-		filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+		filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 	}
 
 	.home-indicator {
 		width: 134px;
 		height: 5px;
-		background: rgba(255,255,255,0.35);
+		background: rgba(255, 255, 255, 0.35);
 		border-radius: 3px;
 	}
 
 	@media (max-width: 380px) {
-		.iphone-dock { gap: 10px; padding: 8px 14px; }
-		.ph-icon { width: 44px; height: 44px; }
+		.iphone-dock {
+			gap: 10px;
+			padding: 8px 14px;
+		}
+		.ph-icon {
+			width: 44px;
+			height: 44px;
+		}
 	}
 </style>
