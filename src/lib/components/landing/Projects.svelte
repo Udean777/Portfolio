@@ -10,7 +10,7 @@
 			status: 'Live',
 			tags: ['SvelteKit', 'TypeScript', 'Prisma', 'PostgreSQL', 'Redis'],
 			categories: ['Web', 'Backend'],
-			image: '/images/vivnio.png',
+			image: '/images/vivnio.webp',
 			link: { label: 'vivnio.com', url: 'https://vivnio.com' },
 			featured: true
 		},
@@ -20,7 +20,7 @@
 			status: 'Live',
 			tags: ['React Native', 'TypeScript'],
 			categories: ['Mobile'],
-			image: '/images/kaosnyaman.png',
+			image: '/images/kaosnyaman.webp',
 			link: {
 				label: 'Play Store',
 				url: 'https://play.google.com/store/apps/details?id=com.udeans.kaosnyaman'
@@ -32,7 +32,7 @@
 			status: 'Live',
 			tags: ['React Native', 'TypeScript'],
 			categories: ['Mobile'],
-			image: '/images/jdm.png',
+			image: '/images/jdm.webp',
 			link: {
 				label: 'Play Store',
 				url: 'https://play.google.com/store/apps/details?id=com.kitakale.JDMStore'
@@ -44,7 +44,7 @@
 			status: 'Live',
 			tags: ['Flutter'],
 			categories: ['Mobile'],
-			image: '/images/the-habits.png',
+			image: '/images/the-habits.webp',
 			link: {
 				label: 'Play Store',
 				url: 'https://play.google.com/store/apps/details?id=com.ssajudin.the_habits'
@@ -56,7 +56,7 @@
 			status: 'Live',
 			tags: ['React Native'],
 			categories: ['Mobile'],
-			image: '/images/UangBijak.png',
+			image: '/images/UangBijak.webp',
 			link: {
 				label: 'Play Store',
 				url: 'https://play.google.com/store/apps/details?id=com.ssajudn.expensetracker'
@@ -87,14 +87,14 @@
 		}
 	];
 
-	const featured = projects.find((p) => p.featured)!;
-	const rest = projects.filter((p) => !p.featured);
-
 	let activeFilter = $state('All');
 
-	const filteredProjects = $derived(
-		activeFilter === 'All' ? [] : projects.filter((p) => p.categories.includes(activeFilter))
+	const visibleProjects = $derived(
+		activeFilter === 'All' ? projects : projects.filter((p) => p.categories.includes(activeFilter))
 	);
+
+	const visibleProjectsWithImage = $derived(visibleProjects.filter((p) => p.image));
+	const visibleProjectsWithoutImage = $derived(visibleProjects.filter((p) => !p.image));
 
 	let sectionEl: HTMLElement;
 	let visible = $state(false);
@@ -142,140 +142,95 @@
 			{/each}
 		</div>
 
-		{#if activeFilter === 'All'}
-			<div class="bento">
+		<div class="bento">
+			{#each visibleProjectsWithImage as project, i}
 				<a
-					href={featured.link.url}
+					href={project.link.url}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="bento-featured card-anim"
-					class:is-highlighted={isHighlighted(featured.tags)}
-					style="--ci: 0"
-					aria-label="{featured.name} - {featured.description}"
+					class="bento-card card-anim"
+					class:is-featured={project.featured}
+					class:is-highlighted={isHighlighted(project.tags)}
+					style="--ci: {i}"
+					aria-label="{project.name} - {project.description}"
 				>
-					<div class="featured-image-wrap">
-						<img src={featured.image} alt={featured.name} class="featured-img" loading="lazy" />
-						<div class="featured-overlay" aria-hidden="true"></div>
+					<div class="card-image-wrap">
+						<img src={project.image} alt={project.name} class="card-img" loading="lazy" />
 					</div>
-					<div class="featured-body">
+					<div class="card-body">
 						<div class="card-top">
-							<span class="card-status status-live">Live</span>
-							<span class="card-ext-icon" aria-hidden="true">
-								<svg
-									width="14"
-									height="14"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline
-										points="15 3 21 3 21 9"
-									/><line x1="10" y1="14" x2="21" y2="3" /></svg
-								>
-							</span>
+							<span
+								class="card-status {project.status === 'Live' ? 'status-live' : 'status-building'}"
+								>{project.status}</span
+							>
+							{#if project.featured}
+								<span class="featured-badge">Featured</span>
+							{/if}
 						</div>
-						<h3 class="card-name card-name-featured">{featured.name}</h3>
-						<p class="card-desc">{featured.description}</p>
+						<h3 class="card-name">{project.name}</h3>
+						<p class="card-desc">{project.description}</p>
 						<div class="card-tags">
-							{#each featured.tags as tag}
+							{#each project.tags.slice(0, 3) as tag}
 								<span class="card-tag">{tag}</span>
 							{/each}
 						</div>
 					</div>
 				</a>
+			{/each}
+		</div>
 
-				<div class="bento-grid">
-					{#each rest as project, i}
+		{#if visibleProjectsWithoutImage.length > 0}
+			<div class="more-projects-section">
+				<h3 class="more-projects-heading">More Projects</h3>
+				<div class="projects-list">
+					{#each visibleProjectsWithoutImage as project, i}
 						<a
 							href={project.link.url}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="bento-card card-anim"
+							class="item-anim list-item"
 							class:is-highlighted={isHighlighted(project.tags)}
-							style="--ci: {i + 1}"
+							style="--li: {i}"
 							aria-label="{project.name} - {project.description}"
 						>
-							{#if project.image}
-								<div class="card-image-wrap">
-									<img src={project.image} alt={project.name} class="card-img" loading="lazy" />
-									<div class="card-img-overlay" aria-hidden="true"></div>
-								</div>
-							{:else}
-								<div
-									class="card-no-image"
-									style="--accent: {project.accent ?? '#0066ff'}"
-									aria-hidden="true"
-								>
-									<div class="card-no-image-grid"></div>
-									<span class="card-no-image-name">{project.name}</span>
-								</div>
-							{/if}
-							<div class="card-body">
-								<div class="card-top">
+							<div class="list-item-left">
+								<div class="list-item-title-row">
+									<h4 class="list-item-name">{project.name}</h4>
 									<span
 										class="card-status {project.status === 'Live'
 											? 'status-live'
 											: 'status-building'}">{project.status}</span
 									>
 								</div>
-								<h3 class="card-name">{project.name}</h3>
-								<p class="card-desc card-desc-sm">{project.description}</p>
+								<p class="list-item-desc">{project.description}</p>
+							</div>
+
+							<div class="list-item-right">
 								<div class="card-tags">
-									{#each project.tags.slice(0, 3) as tag}
+									{#each project.tags as tag}
 										<span class="card-tag">{tag}</span>
 									{/each}
+								</div>
+								<div class="list-item-link">
+									<span class="link-text">{project.link.label}</span>
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2.5"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										class="link-arrow"
+									>
+										<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+									</svg>
 								</div>
 							</div>
 						</a>
 					{/each}
 				</div>
-			</div>
-		{:else}
-			<div class="filtered-grid">
-				{#each filteredProjects as project, i}
-					<a
-						href={project.link.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="bento-card card-anim"
-						class:is-highlighted={isHighlighted(project.tags)}
-						style="--ci: {i}"
-						aria-label="{project.name} - {project.description}"
-					>
-						{#if project.image}
-							<div class="card-image-wrap">
-								<img src={project.image} alt={project.name} class="card-img" loading="lazy" />
-								<div class="card-img-overlay" aria-hidden="true"></div>
-							</div>
-						{:else}
-							<div
-								class="card-no-image"
-								style="--accent: {project.accent ?? '#0066ff'}"
-								aria-hidden="true"
-							>
-								<div class="card-no-image-grid"></div>
-								<span class="card-no-image-name">{project.name}</span>
-							</div>
-						{/if}
-						<div class="card-body">
-							<div class="card-top">
-								<span
-									class="card-status {project.status === 'Live'
-										? 'status-live'
-										: 'status-building'}">{project.status}</span
-								>
-							</div>
-							<h3 class="card-name">{project.name}</h3>
-							<p class="card-desc card-desc-sm">{project.description}</p>
-							<div class="card-tags">
-								{#each project.tags as tag}
-									<span class="card-tag">{tag}</span>
-								{/each}
-							</div>
-						</div>
-					</a>
-				{/each}
 			</div>
 		{/if}
 
@@ -389,6 +344,22 @@
 		transform: translateY(0);
 	}
 
+	.item-anim {
+		opacity: 0;
+		transform: translateY(16px);
+		transition:
+			opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1) calc(0.1s + var(--li, 0) * 0.07s),
+			transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) calc(0.1s + var(--li, 0) * 0.07s),
+			background 0.15s,
+			opacity 0.3s,
+			filter 0.3s;
+	}
+
+	.projects.visible .item-anim {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
 	.projects.has-active-highlight .card-anim {
 		opacity: 0.35;
 		filter: grayscale(60%) blur(0.5px);
@@ -404,71 +375,6 @@
 
 	/* Bento layout */
 	.bento {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 14px;
-	}
-
-	.bento-featured {
-		grid-row: span 2;
-		display: flex;
-		flex-direction: column;
-		border-radius: var(--land-radius);
-		overflow: hidden;
-		border: 1px solid var(--land-border);
-		background: var(--land-bg-3);
-		text-decoration: none;
-	}
-
-	.bento-featured:hover {
-		border-color: var(--blue);
-		transform: translateY(-4px);
-		box-shadow: 0 12px 40px rgba(0, 102, 255, 0.15);
-	}
-
-	.featured-image-wrap {
-		position: relative;
-		height: 260px;
-		overflow: hidden;
-		flex-shrink: 0;
-	}
-
-	.featured-img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: top;
-		display: block;
-		transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-	}
-
-	.bento-featured:hover .featured-img {
-		transform: scale(1.04);
-	}
-
-	.featured-overlay {
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
-	}
-
-	.featured-body {
-		padding: 20px 22px 24px;
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		flex: 1;
-	}
-
-	/* Small cards grid */
-	.bento-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 14px;
-	}
-
-	/* Uniform grid for filtered views */
-	.filtered-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 		gap: 14px;
@@ -490,19 +396,38 @@
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 	}
 
+	.bento-card.is-featured {
+		border-color: rgba(0, 102, 255, 0.45);
+		background: linear-gradient(to bottom right, rgba(0, 102, 255, 0.03) 0%, var(--land-bg-3) 100%);
+		box-shadow: 0 8px 24px rgba(0, 102, 255, 0.06);
+	}
+
+	.bento-card.is-featured:hover {
+		border-color: var(--blue);
+		box-shadow: 0 12px 32px rgba(0, 102, 255, 0.15);
+	}
+
 	/* Card image */
 	.card-image-wrap {
-		height: 110px;
+		width: 100%;
+		height: 180px;
 		overflow: hidden;
 		flex-shrink: 0;
 		position: relative;
+		border-bottom: 1px solid var(--land-border);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(0, 0, 0, 0.2);
+		padding: 16px;
 	}
 
 	.card-img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: top;
+		max-width: 100%;
+		max-height: 100%;
+		width: auto;
+		height: auto;
+		object-fit: contain;
 		display: block;
 		transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 	}
@@ -511,78 +436,9 @@
 		transform: scale(1.05);
 	}
 
-	.card-img-overlay {
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(to bottom, transparent 50%, rgba(26, 26, 26, 0.4) 100%);
-	}
-
-	/* Premium custom cover for no-image cards */
-	.card-no-image {
-		height: 110px;
-		flex-shrink: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: linear-gradient(
-			135deg,
-			color-mix(in srgb, var(--accent, #0066ff) 14%, transparent) 0%,
-			rgba(20, 20, 20, 0.4) 100%
-		);
-		border-bottom: 1px solid var(--land-border);
-		position: relative;
-		overflow: hidden;
-	}
-
-	.card-no-image-grid {
-		position: absolute;
-		inset: 0;
-		opacity: 0.08;
-		background-image:
-			linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
-		background-size: 10px 10px;
-		pointer-events: none;
-	}
-
-	.card-no-image::after {
-		content: '';
-		position: absolute;
-		width: 80px;
-		height: 80px;
-		background: var(--accent, #0066ff);
-		filter: blur(28px);
-		opacity: 0.22;
-		border-radius: 50%;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		transition:
-			transform 0.4s ease,
-			opacity 0.4s ease;
-		pointer-events: none;
-	}
-
-	.bento-card:hover .card-no-image::after {
-		transform: translate(-50%, -50%) scale(1.35);
-		opacity: 0.35;
-	}
-
-	.card-no-image-name {
-		font-family: 'Geist', sans-serif;
-		font-size: 20px;
-		font-weight: 800;
-		color: var(--accent, #0066ff);
-		opacity: 0.75;
-		letter-spacing: -0.04em;
-		line-height: 1;
-		z-index: 2;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-	}
-
 	/* Card body */
 	.card-body {
-		padding: 14px 16px 16px;
+		padding: 18px 20px 20px;
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
@@ -616,17 +472,17 @@
 		border-color: rgba(245, 158, 11, 0.25);
 	}
 
-	.card-ext-icon {
-		color: var(--land-fg-3);
-		display: flex;
-		transition:
-			color 0.15s,
-			transform 0.2s;
-	}
-
-	.bento-featured:hover .card-ext-icon {
+	.featured-badge {
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 9px;
+		font-weight: 600;
+		text-transform: uppercase;
 		color: var(--blue);
-		transform: translate(2px, -2px);
+		background: rgba(0, 102, 255, 0.08);
+		border: 1px solid rgba(0, 102, 255, 0.15);
+		padding: 2px 6px;
+		border-radius: 4px;
+		letter-spacing: 0.02em;
 	}
 
 	.card-name {
@@ -638,25 +494,12 @@
 		letter-spacing: -0.02em;
 	}
 
-	.card-name-featured {
-		font-size: 22px;
-	}
-
 	.card-desc {
 		font-family: 'Geist', sans-serif;
 		font-size: 13px;
 		color: var(--land-fg-2);
 		margin: 0;
 		line-height: 1.55;
-	}
-
-	.card-desc-sm {
-		font-size: 12px;
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		line-clamp: 2;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
 	}
 
 	.card-tags {
@@ -676,9 +519,126 @@
 		color: var(--land-fg-3);
 	}
 
+	/* Other work list section */
+	.more-projects-section {
+		margin-top: 60px;
+	}
+
+	.more-projects-heading {
+		font-family: 'Geist', sans-serif;
+		font-size: 20px;
+		font-weight: 700;
+		color: var(--land-fg);
+		margin: 0 0 20px;
+		letter-spacing: -0.02em;
+	}
+
+	.projects-list {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid var(--land-border);
+		border-radius: var(--land-radius);
+		overflow: hidden;
+		background: var(--land-bg-3);
+	}
+
+	.list-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 32px;
+		padding: 20px 24px;
+		border-bottom: 1px solid var(--land-border);
+		text-decoration: none;
+		transition:
+			background 0.15s,
+			border-color 0.15s;
+	}
+
+	.list-item:last-child {
+		border-bottom: none;
+	}
+
+	.list-item:hover {
+		background: rgba(255, 255, 255, 0.02);
+	}
+
+	.list-item-left {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		min-width: 0;
+	}
+
+	.list-item-title-row {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.list-item-name {
+		font-family: 'Geist', sans-serif;
+		font-size: 16px;
+		font-weight: 700;
+		color: var(--land-fg);
+		margin: 0;
+		letter-spacing: -0.02em;
+	}
+
+	.list-item-desc {
+		font-family: 'Geist', sans-serif;
+		font-size: 13px;
+		color: var(--land-fg-2);
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	.list-item-right {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		flex-shrink: 0;
+	}
+
+	.list-item-link {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		font-family: 'Geist', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: var(--blue);
+		transition: color 0.15s;
+	}
+
+	.link-arrow {
+		transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+		display: flex;
+	}
+
+	.list-item:hover .link-arrow {
+		transform: translateX(4px);
+	}
+
+	/* Card interaction dimming support */
+	.projects.has-active-highlight .list-item {
+		opacity: 0.35;
+		filter: grayscale(60%) blur(0.5px);
+		transition:
+			opacity 0.3s,
+			filter 0.3s;
+	}
+
+	.projects.has-active-highlight .list-item.is-highlighted {
+		opacity: 1;
+		filter: none;
+		background: rgba(0, 102, 255, 0.04);
+	}
+
 	/* GitHub link */
 	.projects-cta {
-		margin-top: 28px;
+		margin-top: 48px;
 		display: flex;
 		justify-content: center;
 	}
@@ -708,21 +668,6 @@
 	}
 
 	/* ── Responsive ── */
-	@media (max-width: 1024px) {
-		.bento {
-			grid-template-columns: 1fr;
-		}
-		.bento-featured {
-			grid-row: span 1;
-		}
-		.bento-grid {
-			grid-template-columns: 1fr 1fr;
-		}
-		.filtered-grid {
-			grid-template-columns: 1fr 1fr;
-		}
-	}
-
 	@media (max-width: 768px) {
 		.projects {
 			padding: 72px 0;
@@ -730,14 +675,8 @@
 		.projects-inner {
 			padding: 0 20px;
 		}
-		.bento-grid {
+		.bento {
 			grid-template-columns: 1fr;
-		}
-		.filtered-grid {
-			grid-template-columns: 1fr;
-		}
-		.featured-image-wrap {
-			height: 200px;
 		}
 	}
 
@@ -767,9 +706,7 @@
 				}
 			}
 
-			.bento,
-			.bento-grid,
-			.filtered-grid {
+			.bento {
 				perspective: 1000px;
 			}
 
@@ -789,6 +726,16 @@
 					border-color 0.25s,
 					box-shadow 0.25s,
 					transform 0.25s;
+			}
+
+			.item-anim {
+				animation: reveal-project-card auto cubic-bezier(0.16, 1, 0.3, 1) both;
+				animation-timeline: view();
+				animation-range: entry 0% entry 30%;
+				transition:
+					background 0.15s,
+					opacity 0.3s,
+					filter 0.3s;
 			}
 		}
 	}

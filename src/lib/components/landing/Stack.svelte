@@ -15,7 +15,7 @@
 		{ name: 'Git', slug: 'git', color: 'f05032' },
 		{ name: 'Figma', slug: 'figma', color: 'f24e1e' },
 		{ name: 'Supabase', slug: 'supabase', color: '3ecf8e' },
-		{ name: 'Prisma', slug: 'prisma', color: 'ffffff' },
+		{ name: 'Prisma', slug: 'prisma', color: '5a67d8' },
 	];
 
 	const doubled = [...techStack, ...techStack];

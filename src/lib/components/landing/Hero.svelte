@@ -160,7 +160,7 @@
 		<div class="hero-visual anim" style="--delay: 100ms">
 			<div class="photo-frame">
 				<img
-					src="/images/sajudin.jpeg"
+					src="/images/sajudin-2.webp"
 					alt="Sajudin Ma'ruf"
 					class="photo"
 					width="480"

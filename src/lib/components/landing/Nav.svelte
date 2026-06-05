@@ -78,7 +78,7 @@
 			}}
 			aria-label="Back to top"
 		>
-			<img class="logo-mark" src="/favicon.png" alt="Logo" />
+			<img class="logo-mark" src="/favicon.webp" alt="Logo" />
 		</a>
 
 		<ul class="nav-links" role="list">

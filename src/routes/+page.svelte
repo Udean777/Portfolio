@@ -19,7 +19,7 @@
 		url: meta.url,
 		image: {
 			'@type': 'ImageObject',
-			url: 'https://sajudin.my.id/images/sajudin.jpeg',
+			url: 'https://sajudin.my.id/images/sajudin.webp',
 			width: 400,
 			height: 400,
 			caption: "Sajudin Ma'ruf — Frontend & Mobile Developer"

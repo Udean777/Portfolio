@@ -13,7 +13,7 @@
   "categories": ["portfolio", "development", "technology"],
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "/favicon.webp",
       "sizes": "any",
       "type": "image/png",
       "purpose": "any maskable"
@@ -31,8 +31,8 @@
   ],
   "screenshots": [
     {
-      "src": "/images/og-image.png",
-      "sizes": "1200x630",
+      "src": "/favicon.webp",
+      "sizes": "512x512",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Sajudin Ma'ruf — Developer Portfolio"

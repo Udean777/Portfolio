@@ -9,7 +9,7 @@ export const load: PageServerLoad = async () => {
 			description:
 				"Sajudin Ma'ruf is a Frontend & Mobile Developer specializing in JavaScript, TypeScript, Svelte, and React Native. Explore my projects and experience.",
 			url: `${SITE_URL}/`,
-			image: `${SITE_URL}/favicon.png`,
+			image: `${SITE_URL}/favicon.webp`,
 			imageAlt: "Sajudin Ma'ruf — Frontend & Mobile Developer Portfolio",
 			imageWidth: '512',
 			imageHeight: '512',

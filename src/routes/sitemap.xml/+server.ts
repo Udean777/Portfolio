@@ -18,12 +18,12 @@ export const GET: RequestHandler = () => {
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>${SITE_URL}/favicon.png</image:loc>
+      <image:loc>${SITE_URL}/favicon.webp</image:loc>
       <image:title>Sajudin Ma'ruf — Frontend &amp; Mobile Developer</image:title>
       <image:caption>Portfolio of Sajudin Ma'ruf, a Frontend &amp; Mobile Developer specializing in Svelte and React Native.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>${SITE_URL}/images/sajudin.jpeg</image:loc>
+      <image:loc>${SITE_URL}/images/sajudin.webp</image:loc>
       <image:title>Sajudin Ma'ruf Profile Photo</image:title>
     </image:image>
   </url>

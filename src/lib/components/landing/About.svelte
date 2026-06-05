@@ -77,7 +77,7 @@
 		<div class="about-left">
 			<div class="photo-wrap">
 				<img
-					src="/images/sajudin.jpeg"
+					src="/images/sajudin-1.webp"
 					alt="Sajudin Ma'ruf"
 					class="about-photo"
 					width="400"
@@ -255,9 +255,9 @@
 
 	.about-photo {
 		width: 100%;
-		height: 400px;
+		height: 500px;
 		object-fit: cover;
-		object-position: center 30%;
+		object-position: center 10%;
 		display: block;
 		transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 	}
