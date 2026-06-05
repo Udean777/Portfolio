@@ -1,289 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Geist:wght@300;400;500;600;700;800;900&display=swap');
 
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
-.font-terminal-retro {
-	font-family: 'VT323', monospace;
-}
-
+/* ── Design tokens: Dark (default) ── */
 :root {
-	--color-background: #1a1b26;
-	--color-foreground: #c0caf5;
-	--color-prompt: #7aa2f7;
-	--color-command: #bb9af7;
-	--color-output: #a9b1d6;
-	--color-error: #f7768e;
-	--color-accent: #73daca;
-	--color-muted: #565f89;
-
-	/* macOS Desktop Shell — Dark Mode (default) */
-	--mac-bar: rgba(28, 28, 30, 0.72);
-	--mac-bar-border: rgba(255, 255, 255, 0.10);
-	--mac-bar-text: rgba(255, 255, 255, 0.92);
-	--mac-bar-text-dim: rgba(255, 255, 255, 0.50);
-	--mac-dropdown-bg: rgba(30, 30, 34, 0.96);
-	--mac-dropdown-border: rgba(255, 255, 255, 0.12);
-	--mac-dropdown-hover: rgba(255, 255, 255, 0.09);
-	--mac-dropdown-text: rgba(255, 255, 255, 0.90);
-	--mac-dropdown-text-dim: rgba(255, 255, 255, 0.40);
-	--mac-dropdown-separator: rgba(255, 255, 255, 0.08);
-	--mac-win-chrome: rgba(38, 38, 42, 0.82);
-	--mac-win-header: rgba(44, 44, 50, 0.90);
-	--mac-win-border: rgba(255, 255, 255, 0.13);
-	--mac-win-border-active: rgba(255, 255, 255, 0.22);
-	--mac-win-title: rgba(255, 255, 255, 0.88);
-	--mac-win-title-inactive: rgba(255, 255, 255, 0.35);
-	--mac-win-body: #1c1c1e;
-	--mac-dock-bg: rgba(30, 30, 34, 0.44);
-	--mac-dock-border: rgba(255, 255, 255, 0.14);
-	--mac-icon-bg: rgba(255, 255, 255, 0.08);
-	--mac-icon-border: rgba(255, 255, 255, 0.06);
-	--mac-surface: #2c2c2e;
-	--mac-surface-2: #3a3a3c;
-	--mac-surface-3: #48484a;
-	--mac-text: rgba(255, 255, 255, 0.92);
-	--mac-text-secondary: rgba(255, 255, 255, 0.55);
-	--mac-text-tertiary: rgba(255, 255, 255, 0.28);
-	--mac-separator: rgba(255, 255, 255, 0.08);
-	--mac-accent: #0a84ff;
-	--mac-accent-hover: #0070d8;
-	--mac-sidebar-bg: rgba(28, 28, 32, 0.95);
-	--mac-sidebar-border: rgba(255, 255, 255, 0.07);
-	--mac-sidebar-active: rgba(255, 255, 255, 0.10);
-	--mac-sidebar-text: rgba(255, 255, 255, 0.80);
-	--mac-scrollbar: rgba(255, 255, 255, 0.16);
-	--mac-input-bg: rgba(255, 255, 255, 0.06);
-	--mac-input-border: rgba(255, 255, 255, 0.12);
-	--mac-label-blue: #0a84ff;
-	--mac-label-green: #30d158;
-	--mac-label-orange: #ff9f0a;
-	--mac-label-red: #ff453a;
-	--mac-label-yellow: #ffd60a;
-	--mac-label-purple: #bf5af2;
+	--blue: #0066ff;
+	--blue-dim: #0052cc;
+	--blue-glow: rgba(0, 102, 255, 0.15);
+	--land-bg: #0a0a0a;
+	--land-bg-2: #111111;
+	--land-bg-3: #1a1a1a;
+	--land-fg: #f0f0f0;
+	--land-fg-2: #a0a0a0;
+	--land-fg-3: #555555;
+	--land-border: rgba(255, 255, 255, 0.08);
+	--land-border-hover: rgba(255, 255, 255, 0.16);
+	--land-radius: 12px;
 }
 
-/* macOS Desktop Shell — Light Mode */
-.mac-light {
-	--mac-bar: rgba(236, 236, 240, 0.78);
-	--mac-bar-border: rgba(0, 0, 0, 0.10);
-	--mac-bar-text: rgba(0, 0, 0, 0.88);
-	--mac-bar-text-dim: rgba(0, 0, 0, 0.45);
-	--mac-dropdown-bg: rgba(246, 246, 248, 0.98);
-	--mac-dropdown-border: rgba(0, 0, 0, 0.10);
-	--mac-dropdown-hover: rgba(0, 0, 0, 0.06);
-	--mac-dropdown-text: rgba(0, 0, 0, 0.88);
-	--mac-dropdown-text-dim: rgba(0, 0, 0, 0.38);
-	--mac-dropdown-separator: rgba(0, 0, 0, 0.08);
-	--mac-win-chrome: rgba(240, 240, 244, 0.88);
-	--mac-win-header: rgba(232, 232, 238, 0.96);
-	--mac-win-border: rgba(0, 0, 0, 0.12);
-	--mac-win-border-active: rgba(0, 0, 0, 0.20);
-	--mac-win-title: rgba(0, 0, 0, 0.82);
-	--mac-win-title-inactive: rgba(0, 0, 0, 0.32);
-	--mac-win-body: #f5f5f7;
-	--mac-dock-bg: rgba(220, 220, 228, 0.52);
-	--mac-dock-border: rgba(0, 0, 0, 0.14);
-	--mac-icon-bg: rgba(0, 0, 0, 0.06);
-	--mac-icon-border: rgba(0, 0, 0, 0.06);
-	--mac-surface: #f0f0f4;
-	--mac-surface-2: #e4e4ea;
-	--mac-surface-3: #d8d8e0;
-	--mac-text: rgba(0, 0, 0, 0.88);
-	--mac-text-secondary: rgba(0, 0, 0, 0.50);
-	--mac-text-tertiary: rgba(0, 0, 0, 0.26);
-	--mac-separator: rgba(0, 0, 0, 0.08);
-	--mac-accent: #007aff;
-	--mac-accent-hover: #0063cc;
-	--mac-sidebar-bg: rgba(240, 240, 244, 0.98);
-	--mac-sidebar-border: rgba(0, 0, 0, 0.07);
-	--mac-sidebar-active: rgba(0, 0, 0, 0.07);
-	--mac-sidebar-text: rgba(0, 0, 0, 0.75);
-	--mac-scrollbar: rgba(0, 0, 0, 0.18);
-	--mac-input-bg: rgba(0, 0, 0, 0.04);
-	--mac-input-border: rgba(0, 0, 0, 0.12);
-	--mac-label-blue: #007aff;
-	--mac-label-green: #28cd41;
-	--mac-label-orange: #ff9500;
-	--mac-label-red: #ff3b30;
-	--mac-label-yellow: #ffcc00;
-	--mac-label-purple: #af52de;
+/* ── Light mode tokens ── */
+[data-theme="light"] {
+	--blue: #0052cc;
+	--blue-dim: #003d99;
+	--blue-glow: rgba(0, 82, 204, 0.1);
+	--land-bg: #ffffff;
+	--land-bg-2: #f5f5f5;
+	--land-bg-3: #ebebeb;
+	--land-fg: #0a0a0a;
+	--land-fg-2: #444444;
+	--land-fg-3: #999999;
+	--land-border: rgba(0, 0, 0, 0.09);
+	--land-border-hover: rgba(0, 0, 0, 0.18);
 }
 
 * {
-	font-family: 'JetBrains Mono', monospace;
 	box-sizing: border-box;
+}
+
+/* Smooth theme transition — only on color/background, not layout */
+*, *::before, *::after {
+	transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	background-color: var(--color-background);
+	background-color: var(--land-bg);
+	font-family: 'Geist', sans-serif;
 }
 
-.terminal-bg {
-	background-color: var(--color-background);
-	color: var(--color-foreground);
-}
-
-.text-prompt {
-	color: var(--color-prompt);
-}
-.text-command {
-	color: var(--color-command);
-}
-.text-output {
-	color: var(--color-output);
-}
-.text-error {
-	color: var(--color-error);
-}
-.text-accent {
-	color: var(--color-accent);
-}
-.text-muted {
-	color: var(--color-muted);
-}
-.border-accent {
-	border-color: var(--color-accent);
-}
-.border-command {
-	border-color: var(--color-command);
-}
-.border-muted {
-	border-color: var(--color-muted);
-}
-.border-error {
-	border-color: var(--color-error);
-}
-.caret-accent {
-	caret-color: var(--color-accent);
-}
-.hover\:bg-command:hover {
-	background-color: var(--color-command);
-}
-.hover\:bg-error:hover {
-	background-color: var(--color-error);
-}
-.hover\:text-background:hover {
-	color: var(--color-background);
-}
-.hover\:text-output:hover {
-	color: var(--color-output);
-}
-.hover\:border-output:hover {
-	border-color: var(--color-output);
-}
-
-/* ── Cursor blink ── */
-@keyframes blink {
-	0%,
-	100% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0;
-	}
-}
-.blink-cursor {
-	animation: blink 1s step-start infinite;
-	font-size: 0.85em;
-	line-height: 1;
-}
-
-/* ── Boot lines fade in ── */
-@keyframes bootFade {
-	from {
-		opacity: 0;
-		transform: translateX(-8px);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-.boot-line {
-	opacity: 0;
-	animation: bootFade 0.3s ease forwards;
-}
-
-/* ── Banner fade in ── */
-@keyframes bannerFade {
-	from {
-		opacity: 0;
-		transform: translateY(-12px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-.banner-fadein {
-	opacity: 0;
-	transition:
-		opacity 0.6s ease,
-		transform 0.6s ease;
-	transform: translateY(-12px);
-}
-.banner-fadein.visible {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-/* ── Entry fade in (per command output) ── */
-@keyframes entryFade {
-	from {
-		opacity: 0;
-		transform: translateY(6px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-.entry-fadein {
-	animation: entryFade 0.25s ease forwards;
-}
-
-/* ── Component content fade in ── */
-@keyframes componentFade {
-	from {
-		opacity: 0;
-		transform: translateY(4px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-.component-fadein {
-	animation: componentFade 0.35s ease 0.05s both;
-}
-
-/* ── Premium CRT Scanline Overlay ── */
-.crt {
-	position: relative;
-}
-.crt::after {
-	content: " ";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: linear-gradient(
-		rgba(18, 16, 16, 0) 50%,
-		rgba(0, 0, 0, 0.15) 50%
-	);
-	background-size: 100% 3px;
-	z-index: 20;
-	pointer-events: none;
-	opacity: 0.8;
-}
-
-/* ── Custom Sleek Scrollbar ── */
+/* ── Custom scrollbar ── */
 ::-webkit-scrollbar {
 	width: 4px;
 	height: 4px;
@@ -292,9 +62,17 @@ body {
 	background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-	background: var(--color-muted);
+	background: var(--land-fg-3);
 	border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--color-accent);
+	background: var(--land-fg-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
 }
