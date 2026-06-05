@@ -27,8 +27,17 @@
 		jobTitle: 'Frontend & Mobile Developer',
 		worksFor: { '@type': 'Organization', name: 'Vivnio' },
 		sameAs: ['https://github.com/Udean777', 'https://linkedin.com/in/sajudin'],
-		knowsAbout: ['JavaScript', 'TypeScript', 'Svelte', 'SvelteKit', 'React Native', 'Web Development', 'Mobile Development'],
-		description: "Frontend & Mobile Developer specializing in JavaScript, TypeScript, Svelte, and React Native."
+		knowsAbout: [
+			'JavaScript',
+			'TypeScript',
+			'Svelte',
+			'SvelteKit',
+			'React Native',
+			'Web Development',
+			'Mobile Development'
+		],
+		description:
+			'Frontend & Mobile Developer specializing in JavaScript, TypeScript, Svelte, and React Native.'
 	};
 
 	const websiteSchema = {
@@ -38,7 +47,9 @@
 		url: meta.url,
 		description: meta.description,
 		author: { '@type': 'Person', name: "Sajudin Ma'ruf" },
-		inLanguage: 'en-US'
+		inLanguage: 'en-US',
+		datePublished: meta.publishedTime,
+		dateModified: meta.modifiedTime
 	};
 </script>
 
@@ -58,8 +69,6 @@
 	<meta property="og:image:alt" content={meta.imageAlt} />
 	<meta property="og:locale" content={meta.locale} />
 	<meta property="og:site_name" content={meta.siteName} />
-	<meta property="article:published_time" content={meta.publishedTime} />
-	<meta property="article:modified_time" content={meta.modifiedTime} />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@sajudin" />
 	<meta name="twitter:creator" content="@sajudin" />
@@ -68,8 +77,12 @@
 	<meta name="twitter:description" content={meta.description} />
 	<meta name="twitter:image" content={meta.image} />
 	<meta name="twitter:image:alt" content={meta.imageAlt} />
-	{@html `<script type="application/ld+json">${JSON.stringify(personSchema)}</script>`}
-	{@html `<script type="application/ld+json">${JSON.stringify(websiteSchema)}</script>`}
+	<script type="application/ld+json">
+		{@html JSON.stringify(personSchema)}
+	</script>
+	<script type="application/ld+json">
+		{@html JSON.stringify(websiteSchema)}
+	</script>
 </svelte:head>
 
 <div class="page">

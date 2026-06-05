@@ -69,19 +69,59 @@
 	aria-label="Main navigation"
 >
 	<div class="nav-inner">
-		<button
+		<a
+			href="/"
 			class="logo"
-			onclick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+			onclick={(e) => {
+				e.preventDefault();
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}}
 			aria-label="Back to top"
 		>
 			<span class="logo-mark" aria-hidden="true">SM</span>
-		</button>
+		</a>
 
 		<ul class="nav-links" role="list">
-			<li><button class="nav-link" onclick={() => scrollTo('about')}>About</button></li>
-			<li><button class="nav-link" onclick={() => scrollTo('experience')}>Experience</button></li>
-			<li><button class="nav-link" onclick={() => scrollTo('projects')}>Work</button></li>
-			<li><button class="nav-link" onclick={() => scrollTo('contact')}>Contact</button></li>
+			<li>
+				<a
+					href="#about"
+					class="nav-link"
+					onclick={(e) => {
+						e.preventDefault();
+						scrollTo('about');
+					}}>About</a
+				>
+			</li>
+			<li>
+				<a
+					href="#experience"
+					class="nav-link"
+					onclick={(e) => {
+						e.preventDefault();
+						scrollTo('experience');
+					}}>Experience</a
+				>
+			</li>
+			<li>
+				<a
+					href="#projects"
+					class="nav-link"
+					onclick={(e) => {
+						e.preventDefault();
+						scrollTo('projects');
+					}}>Work</a
+				>
+			</li>
+			<li>
+				<a
+					href="#contact"
+					class="nav-link"
+					onclick={(e) => {
+						e.preventDefault();
+						scrollTo('contact');
+					}}>Contact</a
+				>
+			</li>
 		</ul>
 
 		<div class="nav-actions">
@@ -147,13 +187,41 @@
 
 	{#if menuOpen}
 		<div class="mobile-menu" role="menu" transition:slide={{ duration: 280, easing: cubicOut }}>
-			<button class="mobile-link" role="menuitem" onclick={() => scrollTo('about')}>About</button>
-			<button class="mobile-link" role="menuitem" onclick={() => scrollTo('experience')}
-				>Experience</button
+			<a
+				href="#about"
+				class="mobile-link"
+				role="menuitem"
+				onclick={(e) => {
+					e.preventDefault();
+					scrollTo('about');
+				}}>About</a
 			>
-			<button class="mobile-link" role="menuitem" onclick={() => scrollTo('projects')}>Work</button>
-			<button class="mobile-link" role="menuitem" onclick={() => scrollTo('contact')}
-				>Contact</button
+			<a
+				href="#experience"
+				class="mobile-link"
+				role="menuitem"
+				onclick={(e) => {
+					e.preventDefault();
+					scrollTo('experience');
+				}}>Experience</a
+			>
+			<a
+				href="#projects"
+				class="mobile-link"
+				role="menuitem"
+				onclick={(e) => {
+					e.preventDefault();
+					scrollTo('projects');
+				}}>Work</a
+			>
+			<a
+				href="#contact"
+				class="mobile-link"
+				role="menuitem"
+				onclick={(e) => {
+					e.preventDefault();
+					scrollTo('contact');
+				}}>Contact</a
 			>
 			<div class="mobile-bottom">
 				<a href="/assets/CV-Sajudin-ma'ruf.pdf" download class="mobile-link mobile-cv"
@@ -355,6 +423,7 @@
 		padding: 6px 12px;
 		border-radius: 6px;
 		letter-spacing: -0.01em;
+		text-decoration: none;
 	}
 
 	.nav-link:hover {

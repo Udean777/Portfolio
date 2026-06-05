@@ -54,7 +54,14 @@
 			</p>
 
 			<div class="hero-cta anim" style="--delay: 320ms">
-				<button class="cta-primary" onclick={() => scrollTo('projects')}>
+				<a
+					href="#projects"
+					class="cta-primary"
+					onclick={(e) => {
+						e.preventDefault();
+						scrollTo('projects');
+					}}
+				>
 					View Work
 					<svg
 						width="14"
@@ -67,8 +74,17 @@
 						stroke-linejoin="round"
 						aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg
 					>
-				</button>
-				<button class="cta-secondary" onclick={() => scrollTo('contact')}> Get in Touch </button>
+				</a>
+				<a
+					href="#contact"
+					class="cta-secondary"
+					onclick={(e) => {
+						e.preventDefault();
+						scrollTo('contact');
+					}}
+				>
+					Get in Touch
+				</a>
 			</div>
 
 			<div class="hero-stats anim" style="--delay: 400ms" aria-label="Quick stats">
@@ -294,6 +310,7 @@
 			transform 0.1s,
 			box-shadow 0.15s;
 		white-space: nowrap;
+		text-decoration: none;
 	}
 
 	.cta-primary:hover {
@@ -323,6 +340,7 @@
 			background 0.15s,
 			transform 0.1s;
 		white-space: nowrap;
+		text-decoration: none;
 	}
 
 	.cta-secondary:hover {
