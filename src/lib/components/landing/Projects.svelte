@@ -376,7 +376,7 @@
 	/* Bento layout */
 	.bento {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
 		gap: 14px;
 	}
 
@@ -677,6 +677,17 @@
 		}
 		.bento {
 			grid-template-columns: 1fr;
+		}
+		.list-item {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 16px;
+			padding: 20px;
+		}
+		.list-item-right {
+			width: 100%;
+			justify-content: space-between;
+			gap: 16px;
 		}
 	}
 

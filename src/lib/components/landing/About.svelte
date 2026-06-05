@@ -574,6 +574,8 @@
 
 		.about-left {
 			position: static;
+			display: flex;
+			justify-content: center;
 		}
 
 		.photo-wrap {

@@ -78,7 +78,7 @@
 			}}
 			aria-label="Back to top"
 		>
-			<img class="logo-mark" src="/favicon.webp" alt="Logo" />
+			<img class="logo-mark" src="/favicon.webp" alt="Logo" width="36" height="36" />
 		</a>
 
 		<ul class="nav-links" role="list">
@@ -543,8 +543,14 @@
 			flex-direction: column;
 			background: var(--land-bg);
 			border-top: 1px solid var(--land-border);
+			border-bottom: 1px solid var(--land-border);
 			padding: 8px 20px 20px;
 			gap: 0;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 		}
 
 		.mobile-link {
