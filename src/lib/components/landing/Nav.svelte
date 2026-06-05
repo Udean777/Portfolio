@@ -78,7 +78,7 @@
 			}}
 			aria-label="Back to top"
 		>
-			<span class="logo-mark" aria-hidden="true">SM</span>
+			<img class="logo-mark" src="/favicon.png" alt="Logo" />
 		</a>
 
 		<ul class="nav-links" role="list">
