@@ -57,6 +57,7 @@
 	<title>{meta.title}</title>
 	<meta name="description" content={meta.description} />
 	<link rel="canonical" href={meta.url} />
+	<link rel="preload" as="image" href="/images/sajudin-2.webp" fetchpriority="high" type="image/webp" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={meta.url} />
 	<meta property="og:title" content={meta.title} />

@@ -84,30 +84,6 @@
 					height="500"
 					loading="lazy"
 				/>
-				<div class="photo-info" aria-hidden="true">
-					<div class="info-row">
-						<span class="info-label">Location</span>
-						<span class="info-val">Indonesia</span>
-					</div>
-					<div class="info-row">
-						<span class="info-label">Status</span>
-						<span class="info-val">Full-time @ Vivnio</span>
-					</div>
-					<div class="info-row">
-						<span class="info-label">Freelance</span>
-						<span class="info-val info-available">Open</span>
-					</div>
-					<div class="info-row">
-						<span class="info-label">Focus</span>
-						<span class="info-val">Web &amp; Mobile</span>
-					</div>
-					{#if timeString}
-						<div class="info-row">
-							<span class="info-label">Local Time</span>
-							<span class="info-val clock-val">{timeString} WIB</span>
-						</div>
-					{/if}
-				</div>
 			</div>
 		</div>
 
@@ -264,53 +240,6 @@
 
 	.photo-wrap:hover .about-photo {
 		transform: scale(1.03);
-	}
-
-	.photo-info {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background: rgba(0, 0, 0, 0.72);
-		backdrop-filter: blur(14px);
-		-webkit-backdrop-filter: blur(14px);
-		padding: 14px 16px;
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-		border-top: 1px solid var(--land-border);
-	}
-
-	.info-row {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	.info-label {
-		font-family: 'JetBrains Mono', monospace;
-		font-size: 10px;
-		color: var(--land-fg-3);
-		letter-spacing: 0.04em;
-		text-transform: uppercase;
-	}
-
-	.info-val {
-		font-family: 'Geist', sans-serif;
-		font-size: 12px;
-		font-weight: 500;
-		color: var(--land-fg-2);
-	}
-
-	.info-available {
-		color: #22c55e;
-	}
-
-	.clock-val {
-		font-family: 'JetBrains Mono', monospace !important;
-		font-size: 11px !important;
-		color: var(--blue) !important;
-		font-weight: 600 !important;
 	}
 
 	/* Right col */
