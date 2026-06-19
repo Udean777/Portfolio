@@ -2,20 +2,24 @@
 	import { highlightStore } from '$lib/stores/highlight.svelte';
 
 	const techStack = [
-		{ name: 'Kotlin', slug: 'kotlin', color: '7f52ff' },
 		{ name: 'Svelte', slug: 'svelte', color: 'ff3e00' },
-		{ name: 'TypeScript', slug: 'typescript', color: '3178c6' },
-		{ name: 'React', slug: 'react', color: '61dafb' },
-		{ name: 'Flutter', slug: 'flutter', color: '02569b' },
 		{ name: 'Go', slug: 'go', color: '00add8' },
-		{ name: 'Node.js', slug: 'nodedotjs', color: '5fa04e' },
+		{ name: 'Flutter', slug: 'flutter', color: '02569b' },
+		{ name: 'Dart', slug: 'dart', color: '0175c2' },
+		{ name: 'JavaScript', slug: 'javascript', color: 'f7df1e' },
+		{ name: 'TypeScript', slug: 'typescript', color: '3178c6' },
+		{ name: 'HTML5', slug: 'html5', color: 'e34f26' },
+		{ name: 'CSS3', slug: 'css3', color: '1572b6' },
+		{ name: 'Git', slug: 'git', color: 'f05032' },
+		{ name: 'GitHub', slug: 'github', color: '181717' },
 		{ name: 'PostgreSQL', slug: 'postgresql', color: '4169e1' },
 		{ name: 'Redis', slug: 'redis', color: 'ff4438' },
 		{ name: 'Docker', slug: 'docker', color: '2496ed' },
-		{ name: 'Git', slug: 'git', color: 'f05032' },
-		{ name: 'Figma', slug: 'figma', color: 'f24e1e' },
+		{ name: 'React', slug: 'react', color: '61dafb' },
 		{ name: 'Supabase', slug: 'supabase', color: '3ecf8e' },
 		{ name: 'Prisma', slug: 'prisma', color: '5a67d8' },
+		{ name: 'Swift', slug: 'swift', color: 'f05138' },
+		{ name: 'Kotlin', slug: 'kotlin', color: '7f52ff' }
 	];
 
 	const doubled = [...techStack, ...techStack];

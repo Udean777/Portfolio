@@ -4,77 +4,31 @@
 
 	const projects = [
 		{
-			name: 'Vivnio',
+			name: 'Vivnio.com',
 			description:
-				'Modern platform for wedding invitations and digital services. Built with SvelteKit, Prisma, and PostgreSQL.',
+				'Modern platform for wedding invitations and digital services.',
 			status: 'Live',
-			tags: ['SvelteKit', 'TypeScript', 'Prisma', 'PostgreSQL', 'Redis'],
+			tags: ['SvelteKit', 'TypeScript', 'Prisma', 'PostgreSQL'],
 			categories: ['Web', 'Backend'],
 			image: '/images/vivnio.webp',
 			link: { label: 'vivnio.com', url: 'https://vivnio.com' },
 			featured: true
 		},
 		{
-			name: 'kaosnyaman',
-			description: 'Mobile Point of Sale system for custom apparel retail.',
+			name: 'HIMTI UNPAB',
+			description: 'Official website for the Information Technology Student Association.',
 			status: 'Live',
-			tags: ['React Native', 'TypeScript'],
-			categories: ['Mobile'],
-			image: '/images/kaosnyaman.webp',
-			link: {
-				label: 'Play Store',
-				url: 'https://play.google.com/store/apps/details?id=com.udeans.kaosnyaman'
-			}
-		},
-		{
-			name: 'jdmstore',
-			description: 'Mobile POS system for JDM clothing retail.',
-			status: 'Live',
-			tags: ['React Native', 'TypeScript'],
-			categories: ['Mobile'],
-			image: '/images/jdm.webp',
-			link: {
-				label: 'Play Store',
-				url: 'https://play.google.com/store/apps/details?id=com.kitakale.JDMStore'
-			}
-		},
-		{
-			name: 'The Habits',
-			description: 'Simple and intuitive todo list app for daily task management.',
-			status: 'Live',
-			tags: ['Flutter'],
-			categories: ['Mobile'],
-			image: '/images/the-habits.webp',
-			link: {
-				label: 'Play Store',
-				url: 'https://play.google.com/store/apps/details?id=com.ssajudin.the_habits'
-			}
-		},
-		{
-			name: 'Uang Bijak',
-			description: 'Personal finance expense tracker app.',
-			status: 'Live',
-			tags: ['React Native'],
-			categories: ['Mobile'],
-			image: '/images/UangBijak.webp',
-			link: {
-				label: 'Play Store',
-				url: 'https://play.google.com/store/apps/details?id=com.ssajudn.expensetracker'
-			}
-		},
-		{
-			name: 'POS System',
-			description: 'Full-stack Point of Sale with Flutter frontend and Go backend.',
-			status: 'Building',
-			tags: ['Flutter', 'Go', 'PostgreSQL'],
-			categories: ['Mobile', 'Backend'],
+			tags: ['SvelteKit', 'TypeScript', 'Supabase', 'Tailwind'],
+			categories: ['Web'],
 			image: null,
-			accent: '#22c55e',
-			link: { label: 'View Repo', url: 'https://github.com/Udean777/POS-App-Server' }
+			link: {
+				label: 'himtiunpab.com',
+				url: 'https://himtiunpab.com/'
+			}
 		},
 		{
 			name: 'Fun English',
-			description: 'Interactive language learning app for early childhood education.',
+			description: 'Interactive mobile learning application designed for children\'s language development.',
 			status: 'Live',
 			tags: ['React Native', 'TypeScript', 'Supabase'],
 			categories: ['Mobile'],
@@ -84,6 +38,96 @@
 				label: 'Play Store',
 				url: 'https://play.google.com/store/apps/details?id=com.editzproject.fun_english'
 			}
+		},
+		{
+			name: 'Portfolio Website',
+			description: 'Personal portfolio website showcasing skills and experiences.',
+			status: 'Live',
+			tags: ['SvelteKit', 'TypeScript', 'Tailwind'],
+			categories: ['Web'],
+			image: null,
+			link: {
+				label: 'sajudin.my.id',
+				url: 'https://www.sajudin.my.id/'
+			}
+		},
+		{
+			name: 'The Habits',
+			description: 'A simple and intuitive todo list application to manage daily tasks.',
+			status: 'Live',
+			tags: ['Flutter', 'Dart'],
+			categories: ['Mobile'],
+			image: '/images/the-habits.webp',
+			link: {
+				label: 'Play Store',
+				url: 'https://play.google.com/store/apps/details?id=com.ssajudin.the_habits'
+			}
+		},
+		{
+			name: 'Uang Bijak',
+			description: 'An expense tracker app to help manage personal finances.',
+			status: 'Live',
+			tags: ['Kotlin', 'Jetpack Compose'],
+			categories: ['Mobile'],
+			image: '/images/UangBijak.webp',
+			link: {
+				label: 'Play Store',
+				url: 'https://play.google.com/store/apps/details?id=com.ssajudn.expensetracker'
+			}
+		},
+		{
+			name: 'poker-gambit',
+			description: 'Open source project in development.',
+			status: 'Building',
+			tags: ['Flutter', 'Dart'],
+			categories: ['Mobile'],
+			image: null,
+			link: { label: 'View Repo', url: 'https://github.com/Udean777/poker-gambit' }
+		},
+		{
+			name: 'Sekre-HQ',
+			description: 'Open source project in development.',
+			status: 'Building',
+			tags: ['SvelteKit', 'TypeScript', 'Flutter', 'Dart', 'Go'],
+			categories: ['Web', 'Mobile', 'Backend'],
+			image: null,
+			link: { label: 'View Repo', url: 'https://github.com/Udean777/Sekre-HQ' }
+		},
+		{
+			name: 'equran-app',
+			description: 'Open source project in development.',
+			status: 'Building',
+			tags: ['Flutter', 'Dart'],
+			categories: ['Mobile'],
+			image: null,
+			link: { label: 'View Repo', url: 'https://github.com/Udean777/equran-app' }
+		},
+		{
+			name: 'Vitals',
+			description: 'macOS app project in development.',
+			status: 'Building',
+			tags: ['Swift'],
+			categories: ['Desktop'],
+			image: null,
+			link: { label: 'View Repo', url: 'https://github.com/Udean777/Vitals' }
+		},
+		{
+			name: 'ClipFlow',
+			description: 'macOS app project in development.',
+			status: 'Building',
+			tags: ['Swift'],
+			categories: ['Desktop'],
+			image: null,
+			link: { label: 'View Repo', url: 'https://github.com/Udean777/ClipFlow' }
+		},
+		{
+			name: 'glide_play',
+			description: 'Open source project in development.',
+			status: 'Building',
+			tags: ['Flutter', 'Dart'],
+			categories: ['Mobile'],
+			image: null,
+			link: { label: 'View Repo', url: 'https://github.com/Udean777/glide_play' }
 		}
 	];
 
@@ -131,7 +175,7 @@
 		<h2 class="projects-heading">Work</h2>
 
 		<div class="filter-tabs">
-			{#each ['All', 'Web', 'Mobile', 'Backend'] as cat}
+			{#each ['All', 'Web', 'Mobile', 'Desktop', 'Backend'] as cat}
 				<button
 					class="filter-tab"
 					class:active={activeFilter === cat}
