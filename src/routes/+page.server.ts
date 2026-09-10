@@ -7,7 +7,7 @@ export const load: PageServerLoad = async () => {
 		meta: {
 			title: "Sajudin Ma'ruf — Frontend & Mobile Developer",
 			description:
-				"Sajudin Ma'ruf is a Frontend & Mobile Developer specializing in JavaScript, TypeScript, Svelte, and React Native. Explore my projects and experience.",
+				"Sajudin Ma'ruf is a Frontend & Mobile Developer building responsive web interfaces and mobile applications with SvelteKit, Flutter, React Native, JavaScript, and TypeScript.",
 			url: `${SITE_URL}/`,
 			image: `${SITE_URL}/favicon.webp`,
 			imageAlt: "Sajudin Ma'ruf — Frontend & Mobile Developer Portfolio",

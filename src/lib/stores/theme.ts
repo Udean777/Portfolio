@@ -5,9 +5,9 @@ export type Theme = 'dark' | 'light';
 
 function getInitialTheme(): Theme {
 	if (!browser) return 'dark';
-	const stored = localStorage.getItem('theme') as Theme | null;
+	const stored = localStorage.getItem('newspaper-theme') as Theme | null;
 	if (stored === 'dark' || stored === 'light') return stored;
-	return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+	return 'light';
 }
 
 function createThemeStore() {
@@ -16,7 +16,7 @@ function createThemeStore() {
 	function apply(theme: Theme) {
 		if (!browser) return;
 		document.documentElement.setAttribute('data-theme', theme);
-		localStorage.setItem('theme', theme);
+		localStorage.setItem('newspaper-theme', theme);
 	}
 
 	function init() {

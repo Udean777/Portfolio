@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Nav from '$lib/components/landing/Nav.svelte';
-	import Hero from '$lib/components/landing/Hero.svelte';
-	import About from '$lib/components/landing/About.svelte';
-	import Experience from '$lib/components/landing/Experience.svelte';
-	import Projects from '$lib/components/landing/Projects.svelte';
-	import Stack from '$lib/components/landing/Stack.svelte';
-	import Contact from '$lib/components/landing/Contact.svelte';
-	import Footer from '$lib/components/landing/Footer.svelte';
+	import Nav from '$lib/components/landing/NewspaperNav.svelte';
+	import Hero from '$lib/components/landing/NewspaperHero.svelte';
+	import About from '$lib/components/landing/NewspaperAbout.svelte';
+	import Experience from '$lib/components/landing/NewspaperExperience.svelte';
+	import Projects from '$lib/components/landing/NewspaperProjects.svelte';
+	import Stack from '$lib/components/landing/NewspaperStack.svelte';
+	import Contact from '$lib/components/landing/NewspaperContact.svelte';
+	import Footer from '$lib/components/landing/NewspaperFooter.svelte';
 
 	let { data } = $props();
 	const { meta } = data;
@@ -25,7 +25,7 @@
 			caption: "Sajudin Ma'ruf — Frontend & Mobile Developer"
 		},
 		jobTitle: 'Frontend & Mobile Developer',
-		worksFor: { '@type': 'Organization', name: 'Vivnio' },
+		worksFor: { '@type': 'Organization', name: 'PT Arah Baru Selayar' },
 		sameAs: ['https://github.com/Udean777', 'https://linkedin.com/in/sajudin'],
 		knowsAbout: [
 			'JavaScript',
@@ -47,7 +47,7 @@
 		url: meta.url,
 		description: meta.description,
 		author: { '@type': 'Person', name: "Sajudin Ma'ruf" },
-		inLanguage: 'en-US',
+		inLanguage: 'en',
 		datePublished: meta.publishedTime,
 		dateModified: meta.modifiedTime
 	};
@@ -64,7 +64,7 @@
 	<meta property="og:description" content={meta.description} />
 	<meta property="og:image" content={meta.image} />
 	<meta property="og:image:secure_url" content={meta.image} />
-	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:type" content="image/webp" />
 	<meta property="og:image:width" content={meta.imageWidth} />
 	<meta property="og:image:height" content={meta.imageHeight} />
 	<meta property="og:image:alt" content={meta.imageAlt} />
@@ -90,19 +90,24 @@
 	<Nav />
 	<main id="main-content">
 		<Hero />
-		<About />
-		<Experience />
-		<Projects />
-		<Stack />
-		<Contact />
+		<div class="newspaper-body">
+			<About />
+			<Experience />
+			<Projects />
+			<Stack />
+			<Contact />
+		</div>
 	</main>
 	<Footer />
 </div>
 
 <style>
 	.page {
-		background: var(--land-bg);
+		max-width: 1440px;
+		margin: 0 auto;
+		background: var(--color-paper);
 		min-height: 100dvh;
-		color: var(--land-fg);
+		color: var(--color-ink);
+		border-inline: var(--rule-thin) solid var(--color-rule);
 	}
 </style>

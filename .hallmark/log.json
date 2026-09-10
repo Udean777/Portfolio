@@ -1,0 +1,22 @@
+[
+	{
+		"date": "2026-09-10",
+		"scope": "section",
+		"macrostructure": "Catalogue",
+		"theme": "Newsprint",
+		"enrichment": "none",
+		"nav": "N6 Newspaper Masthead",
+		"footer": "Ft4 Dense Colophon",
+		"brief": "Selected work redesigned as a newsprint catalogue ledger"
+	},
+	{
+		"date": "2026-09-10",
+		"scope": "app",
+		"macrostructure": "Long Document",
+		"theme": "Newsprint",
+		"enrichment": "none",
+		"nav": "N6 Newspaper Masthead",
+		"footer": "Ft4 Dense Colophon",
+		"brief": "Sajudin Ma'ruf portfolio redesigned as an editorial newspaper broadsheet"
+	}
+]

@@ -170,8 +170,6 @@
 					</svg>
 				{/if}
 			</button>
-
-			<a href="/assets/CV-Sajudin-ma'ruf.pdf" download class="hire-btn">Download CV</a>
 		</div>
 
 		<button
@@ -224,9 +222,6 @@
 				}}>Contact</a
 			>
 			<div class="mobile-bottom">
-				<a href="/assets/CV-Sajudin-ma'ruf.pdf" download class="mobile-link mobile-cv"
-					>Download CV</a
-				>
 				<button class="mobile-theme" onclick={() => themeStore.toggle()} aria-label="Toggle theme">
 					{#if theme === 'dark'}
 						<svg
@@ -463,29 +458,6 @@
 		transform: scale(0.94);
 	}
 
-	/* Hire button */
-	.hire-btn {
-		display: inline-flex;
-		align-items: center;
-		padding: 8px 18px;
-		background: var(--blue);
-		color: #fff;
-		font-family: 'Geist', sans-serif;
-		font-size: 13px;
-		font-weight: 600;
-		text-decoration: none;
-		border-radius: 8px;
-		letter-spacing: -0.01em;
-		white-space: nowrap;
-	}
-
-	.hire-btn:hover {
-		background: var(--blue-dim);
-	}
-	.hire-btn:active {
-		transform: scale(0.97);
-	}
-
 	/* Burger */
 	.burger {
 		display: none;
@@ -521,8 +493,7 @@
 	}
 
 	@media (max-width: 768px) {
-		.nav-links,
-		.hire-btn {
+		.nav-links {
 			display: none;
 		}
 
@@ -573,10 +544,6 @@
 		.mobile-link:hover {
 			color: var(--land-fg);
 		}
-		.mobile-cv {
-			color: var(--blue);
-		}
-
 		.mobile-bottom {
 			display: flex;
 			align-items: center;

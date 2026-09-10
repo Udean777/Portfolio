@@ -38,13 +38,6 @@
 			href: 'https://linkedin.com/in/sajudin',
 			external: true,
 			icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`
-		},
-		{
-			label: 'Resume',
-			value: 'Download CV',
-			href: "/assets/CV-Sajudin-ma'ruf.pdf",
-			download: true,
-			icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`
 		}
 	];
 
@@ -120,7 +113,7 @@
 								class="contact-link"
 								target={link.external ? '_blank' : undefined}
 								rel={link.external ? 'noopener noreferrer' : undefined}
-								download={link.download ? true : undefined}
+								download={'download' in link && link.download ? true : undefined}
 							>
 								<span class="link-icon">{@html link.icon}</span>
 								<span class="link-body">

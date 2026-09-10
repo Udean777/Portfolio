@@ -1,0 +1,10 @@
+{
+  "scannedAt": "2026-09-10",
+  "framework": "SvelteKit 5 with Tailwind CSS 4",
+  "fontStackBefore": "Geist + JetBrains Mono via src/app.html",
+  "paletteBefore": "Dark/light custom properties in src/app.css",
+  "motionBefore": "svelte-motion dependency plus CSS scroll/entrance motion",
+  "spacingBefore": "No named spacing token system detected",
+  "preserved": ["SvelteKit route ownership", "existing project links", "existing image assets", "contact form behavior", "CV download"],
+  "introduced": ["Newsprint token system", "Long Document structure", "N6 newspaper masthead", "Ft4 colophon footer", "responsive editorial rules"]
+}
