@@ -1,21 +1,99 @@
 <script lang="ts">
-	const projects = [
+	type StackItem = {
+		name: string;
+		icon: string;
+		url?: string;
+	};
+
+	type Project = {
+		name: string;
+		type: string;
+		description: string;
+		image?: string;
+		url: string;
+		repo?: string;
+		label: string;
+		stack?: StackItem[];
+	};
+
+	const projects: Project[] = [
 		{
 			name: 'Vivnio.com',
 			type: 'Web · featured',
 			description:
-				'A modern platform for wedding invitations and digital services. The work focuses on responsive web experiences, clear content presentation, and a smoother path from invitation design to a finished digital event page.',
+				'A modern digital invitation platform built with SvelteKit. Vivnio supports wedding, khitan, birthday, graduation, and other celebration templates with modal-based editing, real-time previews, rich styling controls, optimized font loading, responsive touch support, admin management, payment integration, and multi-domain routing for resellers.',
 			image: '/images/vivnio.webp',
 			url: 'https://vivnio.com',
-			label: 'Open vivnio.com'
+			label: 'Open vivnio.com',
+			stack: [
+				{
+					name: 'Svelte',
+					icon: 'https://cdn.simpleicons.org/svelte/FF3E00',
+					url: 'https://github.com/a-new-1/proto-inv-4/search?l=svelte'
+				},
+				{
+					name: 'TypeScript',
+					icon: 'https://cdn.simpleicons.org/typescript/3178C6',
+					url: 'https://github.com/a-new-1/proto-inv-4/search?l=typescript'
+				},
+				{
+					name: 'CSS',
+					icon: 'https://cdn.simpleicons.org/css/1572B6',
+					url: 'https://github.com/a-new-1/proto-inv-4/search?l=css'
+				},
+				{
+					name: 'Shell',
+					icon: 'https://cdn.simpleicons.org/gnubash/4EAA25',
+					url: 'https://github.com/a-new-1/proto-inv-4/search?l=shell'
+				},
+				{
+					name: 'JavaScript',
+					icon: 'https://cdn.simpleicons.org/javascript/F7DF1E',
+					url: 'https://github.com/a-new-1/proto-inv-4/search?l=javascript'
+				},
+				{
+					name: 'PLpgSQL',
+					icon: 'https://cdn.simpleicons.org/postgresql/4169E1',
+					url: 'https://github.com/a-new-1/proto-inv-4/search?l=plpgsql'
+				}
+			]
 		},
 		{
-			name: 'Uang Bijak',
-			type: 'Mobile',
-			description: 'An expense tracker for more deliberate personal finances.',
-			image: '/images/UangBijak.webp',
-			url: 'https://play.google.com/store/apps/details?id=com.ssajudn.expensetracker',
-			label: 'Open in Play Store'
+			name: 'Bareuang',
+			type: 'Mobile · local-first',
+			description:
+				"Most finance apps feel like cold, demanding spreadsheets. Bareuang turns that around with Financial Runway: a simple answer to how long your money will last at your current spending pattern. Core financial data stays local on the device. Optional receipt scanning sends photos to Bareuang's proxy and Google Gemini only after consent. Bareuang is guest-only—no accounts, login, cloud sync, or multi-user profiles—and Reset Data clears the app's local data.",
+			image: '/images/bareuang.webp',
+			url: 'https://bareuang.vercel.app/',
+			repo: 'https://github.com/Udean777/Bareuang',
+			label: 'Download here!',
+			stack: [
+				{
+					name: 'Kotlin',
+					icon: 'https://cdn.simpleicons.org/kotlin/7F52FF',
+					url: 'https://github.com/Udean777/Bareuang/search?l=kotlin'
+				},
+				{
+					name: 'Jetpack Compose',
+					icon: 'https://cdn.simpleicons.org/jetpackcompose/4285F4',
+					url: 'https://github.com/Udean777/Bareuang/search?q=jetpack+compose'
+				},
+				{
+					name: 'HTML',
+					icon: 'https://cdn.simpleicons.org/html5/E34F26',
+					url: 'https://github.com/Udean777/Bareuang/search?l=html'
+				},
+				{
+					name: 'JavaScript',
+					icon: 'https://cdn.simpleicons.org/javascript/F7DF1E',
+					url: 'https://github.com/Udean777/Bareuang/search?l=javascript'
+				},
+				{
+					name: 'CSS',
+					icon: 'https://cdn.simpleicons.org/css/1572B6',
+					url: 'https://github.com/Udean777/Bareuang/search?l=css'
+				}
+			]
 		},
 		{
 			name: 'The Habits',
@@ -28,10 +106,71 @@
 		{
 			name: 'Fun English',
 			type: 'Mobile',
-			description: 'Interactive language learning for children.',
+			description:
+				'An interactive English-learning app for children, built with React Native and Expo. It teaches alphabets, numbers, body parts, and family vocabulary through drag-and-drop, word scramble, selection quizzes, and vocabulary matching. Leaderboards, profiles, text-to-speech, and progress tracking make practice more engaging, powered by Expo Router, NativeWind, Supabase, Expo Speech, Expo AV, and Reanimated.',
 			image: '/images/fun-english.webp',
 			url: 'https://play.google.com/store/apps/details?id=com.editzproject.fun_english',
-			label: 'Open in Play Store'
+			label: 'Open in Play Store',
+			stack: [
+				{ name: 'React Native', icon: 'https://cdn.simpleicons.org/react/61DAFB' },
+				{ name: 'Expo', icon: 'https://cdn.simpleicons.org/expo/000020' },
+				{ name: 'TypeScript', icon: 'https://cdn.simpleicons.org/typescript/3178C6' },
+				{ name: 'JavaScript', icon: 'https://cdn.simpleicons.org/javascript/F7DF1E' }
+			]
+		},
+		{
+			name: 'Keycoach',
+			type: 'Web',
+			description:
+				'A touch-typing coach that teaches your fingers instead of your eyes. Keycoach guides learners through 13 arcade-style stages, while spaced repetition drills the keys they actually miss.',
+			image: '/images/keycoach.webp',
+			url: 'https://keycoach.vercel.app/',
+			repo: 'https://github.com/Udean777/Keycoach',
+			label: 'Open keycoach.vercel.app',
+			stack: [
+				{
+					name: 'SvelteKit',
+					icon: 'https://cdn.simpleicons.org/svelte/FF3E00',
+					url: 'https://github.com/Udean777/Keycoach/search?l=svelte'
+				},
+				{
+					name: 'TypeScript',
+					icon: 'https://cdn.simpleicons.org/typescript/3178C6',
+					url: 'https://github.com/Udean777/Keycoach/search?l=typescript'
+				}
+			]
+		},
+		{
+			name: 'Henka Convert',
+			type: 'Web · local-first',
+			description:
+				'A media, document, and data converter combining local WebAssembly processing for privacy and speed with cloud-assisted processing for heavier tasks. Built around Clean Architecture, SOLID principles, and a premium user experience.',
+			image: '/images/henka-convert.webp',
+			url: 'https://henka-convert.vercel.app/',
+			repo: 'https://github.com/Udean777/henka-convert',
+			label: 'Open henka-convert.vercel.app',
+			stack: [
+				{
+					name: 'Vue',
+					icon: 'https://cdn.simpleicons.org/vuedotjs/4FC08D',
+					url: 'https://github.com/Udean777/henka-convert/search?l=vue'
+				},
+				{
+					name: 'TypeScript',
+					icon: 'https://cdn.simpleicons.org/typescript/3178C6',
+					url: 'https://github.com/Udean777/henka-convert/search?l=typescript'
+				},
+				{
+					name: 'Golang',
+					icon: 'https://cdn.simpleicons.org/go/00ADD8',
+					url: 'https://github.com/Udean777/henka-convert/search?l=go'
+				},
+				{
+					name: 'Docker',
+					icon: 'https://cdn.simpleicons.org/docker/2496ED',
+					url: 'https://github.com/Udean777/henka-convert/search?q=docker'
+				}
+			]
 		}
 	];
 </script>
@@ -42,18 +181,12 @@
 		<h2 id="projects-heading">A small index of things made for the real world.</h2>
 	</div>
 	<div class="catalogue-intro">
-		<p>Four projects, across web and mobile.</p>
+		<p>Six projects, across web and mobile.</p>
 		<span>Archive / 2023—present</span>
 	</div>
 	<div class="catalogue-grid">
 		{#each projects as project, index}
-			<a
-				class:has-image={project.image}
-				class="catalogue-item"
-				href={project.url}
-				target="_blank"
-				rel="noopener noreferrer"
-			>
+			<article class:has-image={project.image} class="catalogue-item">
 				<div class="item-meta">
 					<span class="project-number">0{index + 1}</span>
 					<span class="project-type">{project.type}</span>
@@ -67,9 +200,46 @@
 				<div class="item-copy">
 					<h3>{project.name}</h3>
 					<p>{project.description}</p>
-					<span class="item-link">{project.label} <span aria-hidden="true">→</span></span>
+					{#if project.stack}
+						<div class="project-stack" aria-label={`${project.name} technology stack`}>
+							<span class="stack-caption">Stack</span>
+							<div class="stack-values">
+								{#each project.stack as technology}
+									{#if technology.url}
+										<a
+											class="stack-value"
+											href={technology.url}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<img src={technology.icon} alt="" width="16" height="16" loading="lazy" />
+											{technology.name}
+										</a>
+									{:else}
+										<span class="stack-value">
+											<img src={technology.icon} alt="" width="16" height="16" loading="lazy" />
+											{technology.name}
+										</span>
+									{/if}
+								{/each}
+							</div>
+						</div>
+					{/if}
+					<div class="item-actions">
+						<a class="item-link" href={project.url} target="_blank" rel="noopener noreferrer"
+							>{project.label} <span aria-hidden="true">→</span></a
+						>
+						{#if project.repo}
+							<a
+								class="item-link item-link-secondary"
+								href={project.repo}
+								target="_blank"
+								rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a
+							>
+						{/if}
+					</div>
 				</div>
-			</a>
+			</article>
 		{/each}
 	</div>
 </section>
@@ -97,6 +267,7 @@
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		white-space: nowrap;
+		overflow-wrap: anywhere;
 	}
 	.catalogue-grid {
 		display: grid;
@@ -120,7 +291,7 @@
 	}
 	.item-meta {
 		display: grid;
-		grid-template-columns: 2rem 1fr auto;
+		grid-template-columns: 2rem minmax(0, 1fr) auto;
 		align-items: baseline;
 		gap: var(--space-sm);
 	}
@@ -139,6 +310,8 @@
 	}
 	.project-type {
 		color: var(--color-accent);
+		min-width: 0;
+		overflow-wrap: anywhere;
 	}
 	.item-image {
 		max-width: 100%;
@@ -169,6 +342,7 @@
 	.item-copy p {
 		max-width: 42ch;
 		color: var(--color-ink-2);
+		overflow-wrap: anywhere;
 	}
 	.item-link {
 		width: fit-content;
@@ -177,6 +351,52 @@
 		text-decoration: underline;
 		text-decoration-color: var(--color-accent);
 		text-underline-offset: 0.3em;
+	}
+	.item-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-sm);
+		margin-top: var(--space-2xs);
+	}
+	.project-stack {
+		display: grid;
+		gap: var(--space-2xs);
+		margin-top: var(--space-2xs);
+		padding-top: var(--space-sm);
+		border-top: var(--rule-thin) solid var(--color-rule);
+	}
+	.stack-caption {
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--color-ink-3);
+	}
+	.stack-values {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-2xs) var(--space-sm);
+	}
+	.stack-value {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-3xs);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		white-space: nowrap;
+		max-width: 100%;
+	}
+	.stack-value img {
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		object-fit: contain;
+	}
+	.stack-value:hover {
+		color: var(--color-accent);
+	}
+	.item-link-secondary {
+		color: var(--color-ink-2);
 	}
 	.catalogue-item:hover .project-number,
 	.catalogue-item:hover .project-arrow {
@@ -200,6 +420,9 @@
 			flex-direction: column;
 			gap: var(--space-xs);
 		}
+		.catalogue-intro span {
+			white-space: normal;
+		}
 		.catalogue-grid {
 			grid-template-columns: minmax(0, 1fr);
 		}
@@ -212,6 +435,24 @@
 		}
 		.item-copy h3 {
 			font-size: clamp(2rem, 10vw, 3rem);
+		}
+	}
+	@media (max-width: 30rem) {
+		.catalogue-grid {
+			margin-top: var(--space-lg);
+		}
+		.catalogue-item {
+			gap: var(--space-sm);
+			padding-block: var(--space-sm) var(--space-lg);
+		}
+		.item-meta {
+			grid-template-columns: 1.75rem minmax(0, 1fr) auto;
+			gap: var(--space-xs);
+		}
+		.item-actions {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: var(--space-xs);
 		}
 	}
 </style>

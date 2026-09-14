@@ -69,7 +69,7 @@
 			status: 'Live',
 			tags: ['Kotlin', 'Jetpack Compose'],
 			categories: ['Mobile'],
-			image: '/images/UangBijak.webp',
+			image: '/images/bareuang.webp',
 			link: {
 				label: 'Play Store',
 				url: 'https://play.google.com/store/apps/details?id=com.ssajudn.expensetracker'

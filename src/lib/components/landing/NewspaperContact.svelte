@@ -115,6 +115,8 @@
 	}
 	.contact-links a {
 		width: fit-content;
+		max-width: 100%;
+		overflow-wrap: anywhere;
 		text-decoration: underline;
 		text-decoration-color: var(--color-accent);
 		text-underline-offset: 0.3em;
@@ -221,6 +223,7 @@
 	@media (max-width: 48rem) {
 		.contact-grid {
 			grid-template-columns: 1fr;
+			gap: var(--space-xl);
 		}
 	}
 </style>

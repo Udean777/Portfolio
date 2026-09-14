@@ -24,6 +24,7 @@ html {
 body {
 	margin: 0;
 	padding: 0;
+	min-width: 0;
 	background-color: var(--color-paper);
 	color: var(--color-ink);
 	font-family: var(--font-body);
@@ -192,10 +193,10 @@ button:disabled {
 
 @media (max-width: 48rem) {
 	.newspaper-body {
-		padding-inline: clamp(1rem, 4vw, 3rem);
+		padding-inline: 1rem;
 	}
 	.newspaper-body > .section,
 	.newspaper-body > .projects-section {
-		padding-block: var(--space-2xl);
+		padding-block: clamp(3.25rem, 12vw, var(--space-2xl));
 	}
 }

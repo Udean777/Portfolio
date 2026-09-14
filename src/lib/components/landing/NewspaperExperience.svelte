@@ -71,6 +71,7 @@
 		color: var(--color-ink-2);
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
+		overflow-wrap: anywhere;
 	}
 	.entry-main h3 {
 		grid-column: 1;
@@ -102,6 +103,9 @@
 		.entry-company,
 		.entry-body {
 			margin-top: var(--space-2xs);
+		}
+		.entry-body {
+			max-width: 58ch;
 		}
 	}
 </style>

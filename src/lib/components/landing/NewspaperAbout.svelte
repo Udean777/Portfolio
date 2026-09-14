@@ -99,6 +99,7 @@
 	.about-facts p {
 		margin-top: var(--space-2xs);
 		color: var(--color-ink-2);
+		overflow-wrap: anywhere;
 	}
 	.education-strip {
 		display: grid;
@@ -116,6 +117,7 @@
 		font-family: var(--font-display);
 		font-size: var(--text-lg);
 		font-weight: 600;
+		line-height: 1.05;
 	}
 	.education-strip span:last-child {
 		color: var(--color-ink-2);
@@ -130,6 +132,14 @@
 		.about-columns,
 		.education-strip {
 			grid-template-columns: 1fr;
+		}
+		.about-columns {
+			gap: var(--space-xl);
+			margin-top: var(--space-xl);
+		}
+		.education-strip {
+			gap: var(--space-lg);
+			margin-top: var(--space-xl);
 		}
 	}
 </style>

@@ -3,7 +3,7 @@
 	<div class="stack-list">
 		<span>SvelteKit</span><span>TypeScript</span><span>Flutter</span><span>React Native</span><span
 			>JavaScript</span
-		><span>PostgreSQL</span><span>Git</span><span>Figma</span>
+		><span>PostgreSQL</span><span>Git</span><span>Kotlin</span><span>Jetpack Compose</span>
 	</div>
 </section>
 

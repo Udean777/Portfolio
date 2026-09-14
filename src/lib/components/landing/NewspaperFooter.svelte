@@ -60,6 +60,10 @@
 		padding-top: var(--space-sm);
 		border-top: var(--rule-thin) solid var(--color-rule);
 	}
+	.colophon-bottom > span {
+		min-width: 0;
+		overflow-wrap: anywhere;
+	}
 	.colophon-bottom a {
 		text-decoration: underline;
 		text-underline-offset: 0.3em;
@@ -71,6 +75,7 @@
 		}
 		.colophon-bottom {
 			flex-direction: column;
+			gap: var(--space-xs);
 		}
 	}
 </style>
