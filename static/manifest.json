@@ -15,7 +15,7 @@
     {
       "src": "/favicon.webp",
       "sizes": "any",
-      "type": "image/png",
+      "type": "image/webp",
       "purpose": "any maskable"
     },
     {
@@ -31,11 +31,11 @@
   ],
   "screenshots": [
     {
-      "src": "/favicon.webp",
-      "sizes": "512x512",
+      "src": "/images/og-image.png",
+      "sizes": "1200x630",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Sajudin Ma'ruf — Developer Portfolio"
+      "label": "Sajudin Ma'ruf Developer Portfolio"
     }
   ]
 }

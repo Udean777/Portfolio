@@ -19,7 +19,7 @@
 		<figure class="front-page-portrait">
 			<img
 				src="/images/sajudin-2.webp"
-				alt="Sajudin Ma'ruf"
+				alt="Sajudin Ma'ruf, Frontend and Mobile Developer"
 				width="750"
 				height="1000"
 				fetchpriority="high"
