@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 
 const SITE_URL = 'https://sajudin.my.id';
-const OG_IMAGE = `${SITE_URL}/images/og-image.png`;
+const OG_IMAGE = `${SITE_URL}/images/og-image.jpg`;
 const PROFILE_IMAGE = `${SITE_URL}/images/sajudin-2.webp`;
 
 export const load: PageServerLoad = async () => {
@@ -9,7 +9,9 @@ export const load: PageServerLoad = async () => {
 		meta: {
 			title: "Sajudin Ma'ruf | Frontend & Mobile Developer",
 			description:
-				"Sajudin Ma'ruf is a Frontend and Mobile Developer in Indonesia building responsive web experiences and useful apps with SvelteKit, Flutter, and React Native.",
+				"Sajudin Ma'ruf is a Frontend and Mobile Developer in Indonesia building responsive web and mobile apps with SvelteKit, Flutter, and React Native.",
+			socialDescription:
+				"Explore Sajudin Ma'ruf's portfolio of responsive web experiences and practical apps built with SvelteKit, Flutter, and React Native.",
 			url: `${SITE_URL}/`,
 			imageAlt: "Sajudin Ma'ruf, Frontend and Mobile Developer",
 			imageWidth: '1200',

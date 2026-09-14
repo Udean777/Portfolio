@@ -88,10 +88,10 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={meta.url} />
 	<meta property="og:title" content={meta.title} />
-	<meta property="og:description" content={meta.description} />
+	<meta property="og:description" content={meta.socialDescription} />
 	<meta property="og:image" content={meta.ogImage} />
 	<meta property="og:image:secure_url" content={meta.ogImage} />
-	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:type" content="image/jpeg" />
 	<meta property="og:image:width" content={meta.imageWidth} />
 	<meta property="og:image:height" content={meta.imageHeight} />
 	<meta property="og:image:alt" content={meta.imageAlt} />
@@ -102,7 +102,7 @@
 	<meta name="twitter:creator" content="@sajudin" />
 	<meta name="twitter:url" content={meta.url} />
 	<meta name="twitter:title" content={meta.title} />
-	<meta name="twitter:description" content={meta.description} />
+	<meta name="twitter:description" content={meta.socialDescription} />
 	<meta name="twitter:image" content={meta.ogImage} />
 	<meta name="twitter:image:alt" content={meta.imageAlt} />
 	{@html `<script type="application/ld+json">${JSON.stringify(structuredData).replace(/</g, '\\u003c')}</script>`}
